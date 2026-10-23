@@ -8,7 +8,11 @@
 <meta name="theme-color" content="#0f172a">
 <meta property="og:title" content="Data and Design Geeks Studio | Design, Data, Code & Security">
 <meta property="og:description" content="Transforming complex problems into intuitive, resilient, and beautifully designed digital solutions.">
-<meta property="og:image" content="images/logo.png">
+<link rel="canonical" href="https://designanddatageeks.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://designanddatageeks.com/">
+<meta property="og:image" content="https://designanddatageeks.com/images/logo.png">
+<meta name="twitter:card" content="summary">
 <link rel="icon" href="images/logo.png">
 
 <!-- Google Fonts -->
@@ -652,15 +656,17 @@
       </div>
 
       <div class="lg:col-span-5">
-        <form class="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl space-y-3" id="news" novalidate>
+        <form class="p-6 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl space-y-3" id="news" name="waitlist" method="post" data-netlify="true" netlify-honeypot="company" novalidate>
           <label for="nl" class="block text-sm font-semibold text-white">Join the Priority Admissions Waitlist</label>
           <div class="flex flex-col sm:flex-row gap-2">
-            <input id="nl" type="email" required placeholder="name@company.com" class="flex-1 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400">
-            <button class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition shadow-lg shrink-0">
+            <input id="nl" name="email" type="email" required autocomplete="email" placeholder="name@company.com" class="flex-1 rounded-xl px-4 py-3 bg-white text-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400">
+            <button type="submit" class="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold px-6 py-3 rounded-xl transition shadow-lg shrink-0">
               Apply Now
             </button>
           </div>
-          <p id="news-msg" class="text-xs text-emerald-300 min-h-[20px]" role="status"></p>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
+          <p class="text-[11px] text-white/70">By applying you agree to our <a href="privacy.html" class="underline">Privacy Policy</a>.</p>
+          <p id="news-msg" class="text-xs text-emerald-300 min-h-[20px]" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
@@ -749,7 +755,7 @@
 
     <!-- Contact Form with modern fields -->
     <div class="lg:col-span-7">
-      <form id="contact-form" class="p-8 sm:p-10 rounded-3xl bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xl backdrop-blur-xl grid sm:grid-cols-2 gap-5" novalidate>
+      <form id="contact-form" name="contact" method="post" data-netlify="true" netlify-honeypot="company" class="p-8 sm:p-10 rounded-3xl bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-xl backdrop-blur-xl grid sm:grid-cols-2 gap-5" novalidate>
         
         <div>
           <label for="n" class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Your Full Name *</label>
@@ -785,12 +791,14 @@
         <!-- Honeypot anti-spam field -->
         <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
+        <p class="sm:col-span-2 text-xs text-slate-500 dark:text-slate-400">We use your details only to reply to your inquiry. See our <a href="privacy.html" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-emerald-400">Privacy Policy</a>.</p>
+
         <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
           <button type="submit" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-teal-600 hover:from-brand-500 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-500/25 hover:-translate-y-0.5 transition duration-200">
             <span>Send Project Inquiry</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
-          <p id="form-msg" role="status" class="text-sm font-medium"></p>
+          <p id="form-msg" role="status" aria-live="polite" class="text-sm font-medium"></p>
         </div>
 
       </form>
@@ -861,7 +869,7 @@
   <div class="max-w-[1400px] mx-auto mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
     <p>&copy; <span id="yr">2026</span> Data and Design Geeks Studio (DDGs). All rights reserved.</p>
     <div class="flex items-center gap-6">
-      <a href="#" class="hover:underline">Privacy Policy</a>
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a>
       <a href="#" class="hover:underline">Terms of Service</a>
       <a href="#" class="hover:underline">Security Whitepaper</a>
     </div>
@@ -881,11 +889,11 @@
   "name": "Data and Design Geeks Studio",
   "alternateName": "DDGs",
   "url": "https://designanddatageeks.com",
-  "logo": "images/logo.png",
+  "logo": "https://designanddatageeks.com/images/logo.png",
   "email": "dataanddesigngeeks@gmail.com",
   "sameAs": [
     "https://linkedin.com/in/designgeeksstudio",
-    "https://www.facebook.com/people/Data-Design-Geeks/100063655043554/",
+    "https://www.facebook.com/people/Data-Design-Geeks/100063655043554/"
   ],
   "description": "Tech-driven startup bringing together skilled professionals in web and app development, data analytics, product design, social media management and cybersecurity."
 }
@@ -1332,6 +1340,9 @@ const STACK = {
   Web:['React','Next.js','TypeScript','PostgreSQL'], Design:['Figma','Design Tokens','Prototyping','User Testing'],
   App:['Flutter','Firebase','REST APIs','CI/CD'], Data:['Python','SQL','Power BI','Spark'], Security:['Pen Testing','IAM','Zero-Trust','OWASP']
 };
+/* Add a project here when its case-study page is ready: 'Project title': 'case-study-file.html' */
+const CASE_STUDIES = { 'Enterprise FinTech Hub': 'case-study.html' };
+
 function openProject(title) {
   const p = PROJECTS.find(x => x[0] === title); if (!p) return;
   const [t, cat, img, summary] = p;
@@ -1347,7 +1358,10 @@ function openProject(title) {
       </div>
       <h4 class="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech &amp; tools</h4>
       <div class="mt-3 flex flex-wrap gap-2">${STACK[cat].map(chip).join('')}</div>
-      <a href="#contact" onclick="$('#modal').close()" class="mt-8 inline-flex px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition">Discuss a similar project &rarr;</a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        ${CASE_STUDIES[t] ? `<a href="${CASE_STUDIES[t]}" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">Read the full case study</a>` : ''}
+        <a href="#contact" onclick="$('#modal').close()" class="inline-flex px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition">Discuss a similar project &rarr;</a>
+      </div>
     </div>`);
 }
 $('#grid').addEventListener('click', e => { const c = e.target.closest('.proj'); if (c) openProject(c.dataset.t); });
@@ -1360,50 +1374,7 @@ const spy = new IntersectionObserver(es => es.forEach(en => {
 ['services','work','process','team','academy','faq'].forEach(id => { const el = document.getElementById(id); if (el) spy.observe(el); });
 
 $('#yr').textContent = new Date().getFullYear();
-
-/* ---- Forms Processing ---- */
-$('#contact-form').addEventListener('submit', e => {
-  e.preventDefault();
-  const form = e.target;
-  const msg = $('#form-msg');
-  
-  // Anti-bot honeypot check
-  if (form.company.value) return;
-
-  const name = form.name.value.trim();
-  const email = form.email.value.trim();
-  const type = form.type.value;
-  const message = form.message.value.trim();
-
-  if (!name || !email || !message) {
-    msg.textContent = 'Please complete all required fields.';
-    msg.className = 'text-sm font-semibold text-rose-500';
-    return;
-  }
-
-  // Trigger default client dispatch
-  const mailtoUrl = `mailto:hello@designanddatageeks.com?subject=${encodeURIComponent(`[DDGs Inquiry] ${type} -${name}`)}&body=${encodeURIComponent(`Name: ${name}\nEmail:${email}\nRequirement: ${type}\n\nProject Brief:\n${message}`)}`;
-  
-  msg.textContent = 'Opening your secure email client...';
-  msg.className = 'text-sm font-semibold text-brand-600 dark:text-emerald-400';
-  
-  window.location.href = mailtoUrl;
-  form.reset();
-});
-
-$('#news').addEventListener('submit', e => {
-  e.preventDefault();
-  const input = $('#nl');
-  const msg = $('#news-msg');
-  if (input.checkValidity() && input.value.trim()) {
-    msg.textContent = 'Welcome to the DDG 2026 cohort waitlist! Confirmation email dispatched.';
-    msg.className = 'text-xs text-emerald-300 font-semibold';
-    input.value = '';
-  } else {
-    msg.textContent = 'Please provide a valid work email address.';
-    msg.className = 'text-xs text-rose-400 font-semibold';
-  }
-});
 </script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>
