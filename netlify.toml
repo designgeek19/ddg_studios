@@ -1,0 +1,4 @@
+[build]
+  # Install dependencies (including the Tailwind CLI) before compiling the CSS
+  command = "npm install --no-audit --no-fund && npm run build"
+  publish = "."
