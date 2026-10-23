@@ -1,6 +1,23 @@
 # DDG-STUDIOS
-Full web platform for Design &amp; Data Geeks
+Website for Data and Design Geeks Studio (DDGs).
 
-Data and Design Geeks Studio (DDGs) is a tech-driven startup bringing together skilled professionals in web and app development, data analytics, product design, cybersecurity, and other technology fields. We foster collaboration across disciplines, combining diverse expertise and innovative thinking to deliver high-quality, user-focused digital solutions that help businesses solve problems, grow, and thrive in an increasingly digital world.
+## Project structure
+```
+index.html            the page
+css/style.css         compiled Tailwind CSS (generated, loaded by index.html)
+src/input.css         Tailwind directives + custom CSS (edit this, not style.css)
+tailwind.config.js    colours, fonts, dark mode, which files to scan
+images/               logo, team photos (images/team/), etc.
+```
 
-The goal of this project is to build a modern and successful business enterprise starting from a good website project. The web and mobile app projects would be intuitive, modern, and beautiful at the same tile while adding peak innovation to meet global demands.
+## Working on the site
+Requires Node.js 18+ (https://nodejs.org).
+
+```bash
+npm install        # once, installs Tailwind
+npm run dev        # rebuilds css/style.css every time you save
+npm run build      # minified CSS for production
+```
+
+Run `npm run build` before every deploy, and upload `index.html`, `css/` and `images/`.
+Tailwind only generates classes it finds in `index.html`. If you add pages or script files, add them to `content` in `tailwind.config.js`.

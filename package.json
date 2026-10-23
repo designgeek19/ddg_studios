@@ -1,6 +1,13 @@
 {
-  "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
+  "name": "ddg-studios",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Data and Design Geeks Studio website",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify"
+  },
+  "devDependencies": {
     "tailwindcss": "^4.3.3"
   }
 }

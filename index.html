@@ -14,7 +14,7 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script>
   // Instant theme hydration before paint
@@ -29,142 +29,7 @@
 </script>
 
 <!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    darkMode: 'class',
-    theme: {
-      extend: {
-        fontFamily: {
-          display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-          sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
-        },
-        colors: {
-          brand: {
-            50: '#ecfdf5',
-            100: '#d1fae5',
-            400: '#34d399',
-            500: '#10b981',
-            600: '#059669',
-            700: '#047857',
-            DEFAULT: '#059669'
-          },
-          accent: {
-            cyan: '#06b6d4',
-            indigo: '#6366f1',
-            emerald: '#10b981',
-            lime: '#84cc16'
-          },
-          surface: {
-            light: '#f8fafc',
-            lightcard: '#ffffff',
-            dark: '#070b14',
-            darkcard: '#0f172a',
-            darkelevated: '#17223b'
-          }
-        },
-        boxShadow: {
-          glow: '0 0 35px -5px rgba(16, 185, 129, 0.25)',
-          'glow-lg': '0 0 50px -10px rgba(6, 182, 212, 0.3)'
-        }
-      }
-    }
-  };
-</script>
-
-<style>
-  /* Sophisticated Dark/Light Ambient Canvas */
-  .tech-bg {
-    background-color: #f8fafc;
-    background-image:
-      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(99, 102, 241, 0.04) 0px, transparent 60%),
-      radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.06) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.08) 0px, transparent 50%);
-  }
-  .dark .tech-bg {
-    background-color: #070b14;
-    background-image:
-      radial-gradient(at 15% 10%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-      radial-gradient(at 85% 15%, rgba(6, 182, 212, 0.14) 0px, transparent 50%),
-      radial-gradient(at 50% 60%, rgba(99, 102, 241, 0.09) 0px, transparent 55%),
-      radial-gradient(at 10% 90%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
-      radial-gradient(at 90% 90%, rgba(14, 165, 233, 0.10) 0px, transparent 50%);
-  }
-
-  /* Grid Overlay with Radial Vignette */
-  .grid-pattern {
-    background-size: 36px 36px;
-    background-image: 
-      linear-gradient(to right, rgba(100, 116, 139, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(100, 116, 139, 0.08) 1px, transparent 1px);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 60%, transparent 100%);
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 60%, transparent 100%);
-  }
-  .dark .grid-pattern {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  }
-
-  /* Smooth Floating Light Orbs */
-  @keyframes orb-float-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(40px, -35px) scale(1.08); }
-  }
-  @keyframes orb-float-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-35px, 30px) scale(0.92); }
-  }
-  .orb-1 { animation: orb-float-1 22s ease-in-out infinite; }
-  .orb-2 { animation: orb-float-2 26s ease-in-out infinite; }
-
-  /* Infinite Tech Marquee */
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .marquee-track {
-    animation: marquee 32s linear infinite;
-  }
-  .marquee-track:hover {
-    animation-play-state: paused;
-  }
-
-  /* Subtle Card Glow Borders */
-  .glow-card {
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glow-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 35px -10px rgba(16, 185, 129, 0.15);
-  }
-
-  /* Section Dividers */
-  .divider-curve svg path {
-    fill: currentColor;
-  }
-
-  /* Reveal on Scroll */
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .reveal.in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, .reveal, .marquee-track, .orb-1, .orb-2 {
-      animation: none !important;
-      transition: none !important;
-    }
-    .reveal { opacity: 1 !important; transform: none !important; }
-  }
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="relative min-h-screen text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
@@ -624,6 +489,7 @@
         <img 
           src="images/team-h.png" 
           alt="The DDGs Core Team members collaborating in the studio" 
+          width="800" height="600" decoding="async"
           loading="lazy" 
           class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
           onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'"
@@ -1155,7 +1021,7 @@ function renderProjects() {
     <article tabindex="0" role="button" data-t="${esc(title)}" aria-label="Open ${esc(title)} case study" class="proj reveal group cursor-pointer overflow-hidden rounded-3xl bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-md hover:shadow-2xl transition duration-300 flex flex-col">
       <div class="relative overflow-hidden aspect-[16/10] bg-slate-200 dark:bg-slate-800">
         <img 
-          loading="lazy" 
+          loading="lazy" width="700" height="438" decoding="async"
           src="https://images.unsplash.com/${imgId}?auto=format&fit=crop&w=700&q=80" 
           alt="${esc(title)} preview visual" 
           onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80'"
