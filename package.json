@@ -4,7 +4,8 @@
   "private": true,
   "description": "Data and Design Geeks Studio website",
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+    "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.3.3",

@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Tailwind v4 setup: load the brand colours and fonts from tailwind.config.js,
+   switch dark mode on the .dark class (set by the theme toggle), and say which files to scan. */
+@config "../tailwind.config.js";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../*.html";
+@source "../js/*.js";
+
+
   /* Sophisticated Dark/Light Ambient Canvas */
   .tech-bg {
     background-color: #f8fafc;
