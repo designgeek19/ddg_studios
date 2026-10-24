@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://designanddatageeks.com/sitemap.xml
+Sitemap: https://ddgstudios.netlify.app/sitemap.xml
