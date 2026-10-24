@@ -1,13 +1,14 @@
 /* DDGs form handling: validation, spam trap, send, and friendly feedback.
+   Used by: the contact form on index.html and the application form on academy.html.
    ------------------------------------------------------------------
    SETUP: edit only the CONFIG block below. Full guide: FORM-SETUP.md
-   Endpoint can be a Formspree URL (https://formspree.io/f/xxxx), any service that
+   An endpoint can be a Formspree URL (https://formspree.io/f/xxxx), any service that
    accepts a JSON POST, or the word 'netlify' if you host on Netlify.
-   While an endpoint still contains YOUR_, forms fall back to opening the visitor's email app. */
+   While an endpoint still contains YOUR_, the form falls back to opening the visitor's email app. */
 (() => {
   const CONFIG = {
-    contactEndpoint:    'netlify',
-    newsletterEndpoint: 'netlify',
+    contactEndpoint: 'netlify',
+    academyEndpoint: 'netlify',
     fallbackEmail: 'dataanddesigngeeks@gmail.com',
     cooldownMs: 30000,   // minimum gap between submissions from one browser
     timeoutMs: 12000     // give up if the server takes longer than this
@@ -16,6 +17,17 @@
   const $ = (s, c = document) => c.querySelector(s);
   const configured = url => !!url && !/YOUR_/.test(url);
   const lastSent = {};
+
+  /* Checks fields using the rules written in the HTML (required, type, data-min, data-msg). */
+  function validateFields(els) {
+    for (const el of els) {
+      if (!el.willValidate || el.name === 'company') continue;
+      const min = +el.dataset.min || 0;
+      if (!el.checkValidity() || (min && el.value.trim().length < min)) {
+        return { field: el, text: el.dataset.msg || el.validationMessage || 'Please check this field.' };
+      }
+    }
+  }
 
   async function send(endpoint, formName, data) {
     const netlify = endpoint === 'netlify';
@@ -29,7 +41,7 @@
           ? { 'Content-Type': 'application/x-www-form-urlencoded' }
           : { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: netlify
-          ? new URLSearchParams({ 'form-name': formName, ...data }).toString()
+          ? new URLSearchParams({ 'form-name': formName, subject: data._subject, ...data }).toString()   // Netlify uses the field named "subject" as the email subject
           : JSON.stringify(data)
       });
       return res.ok;
@@ -48,7 +60,11 @@
 
       form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
       const bad = o.validate(form);
-      if (bad) { say(bad.text, false); bad.field.setAttribute('aria-invalid', 'true'); bad.field.focus(); return; }
+      if (bad) {
+        say(bad.text, false);
+        form.dispatchEvent(new CustomEvent('ddg:invalid', { detail: { field: bad.field } }));   // lets multi-step forms jump to the right step
+        bad.field.setAttribute('aria-invalid', 'true'); bad.field.focus(); return;
+      }
 
       if (Date.now() - (lastSent[o.form] || 0) < CONFIG.cooldownMs) { say('Please wait a few seconds before sending again.', false); return; }
 
@@ -62,12 +78,15 @@
       } else if (await send(o.endpoint, o.formName, data)) {
         lastSent[o.form] = Date.now();
         say(o.success, true); form.reset();
+        form.dispatchEvent(new CustomEvent('ddg:sent', { detail: { data } }));
       } else {
         say(`We could not send that. Please try again, or email ${CONFIG.fallbackEmail}.`, false);
       }
       btn.disabled = false; btn.removeAttribute('aria-busy'); btn.innerHTML = label;
     });
   }
+
+  window.DDGForms = { validateFields };
 
   wire({
     form: '#contact-form', msg: '#form-msg', formName: 'contact', endpoint: CONFIG.contactEndpoint,
@@ -88,15 +107,17 @@
   });
 
   wire({
-    form: '#news', msg: '#news-msg', formName: 'waitlist', endpoint: CONFIG.newsletterEndpoint,
-    okClass: 'text-xs text-emerald-300 font-semibold',
-    errClass: 'text-xs text-rose-400 font-semibold',
-    success: 'You are on the waitlist. We will email you when admissions open.',
-    validate(f) {
-      const e = f.elements.email;
-      if (!e.value.trim() || !e.checkValidity()) return { field: e, text: 'Please enter a valid email address.' };
+    form: '#academy-form', msg: '#academy-msg', formName: 'academy', endpoint: CONFIG.academyEndpoint,
+    okClass: 'text-sm font-semibold text-brand-600 dark:text-emerald-400',
+    errClass: 'text-sm font-semibold text-rose-500',
+    success: 'Application received.',
+    validate: f => validateFields([...f.elements]),
+    data: fd => {
+      const d = {};
+      for (const [k, v] of fd.entries()) if (k !== 'company') d[k] = typeof v === 'string' ? v.trim() : v;
+      d._subject = `[DDG Academy Application] ${d.track} - ${d.name}`;
+      return d;
     },
-    data: fd => ({ email: fd.get('email').trim(), _subject: 'Academy waitlist signup' }),
-    mailBody: d => `Please add me to the DDG Academy waitlist.\n\nEmail: ${d.email}`
+    mailBody: d => Object.entries(d).filter(([k]) => k !== '_subject').map(([k, v]) => `${k}: ${v}`).join('\n')
   });
 })();

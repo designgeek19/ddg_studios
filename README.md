@@ -8,7 +8,9 @@ css/style.css         compiled Tailwind CSS (generated, loaded by index.html)
 src/input.css         Tailwind directives + custom CSS (edit this, not style.css)
 tailwind.config.js    colours, fonts, dark mode, which files to scan
 images/               logo, team photos (images/team/), etc.
-js/forms.js           contact + waitlist forms (see FORM-SETUP.md)
+js/forms.js           contact + Academy application forms (see FORM-SETUP.md)
+js/academy.js         Academy content (tracks, dates, FAQ) and the application stepper
+academy.html          Academy page with syllabus, dates and application form
 js/site.js            theme, menu and scroll behaviour for secondary pages
 privacy.html          privacy policy
 case-study.html       reusable case-study template (placeholder content)
@@ -35,3 +37,6 @@ npm run build      # minified CSS for production
 
 Run `npm run build` before every deploy, and upload `index.html`, `css/` and `images/`.
 Tailwind only generates classes it finds in `index.html`. If you add pages or script files, add them to `content` in `tailwind.config.js`.
+
+## Updating the Academy
+Open `js/academy.js` and edit the `TRACKS`, `COHORTS` and `FAQS` lists at the top. The syllabus, dates, form options and FAQ all update from them. Cohorts close for applications automatically after their `deadline` date.
