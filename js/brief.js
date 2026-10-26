@@ -3,7 +3,7 @@
 (() => {
   const CONFIG = {
     briefEndpoint: 'netlify',   // 'netlify', a Formspree URL, or any URL that accepts a JSON POST
-    bookingUrl: 'https://cal.com/YOUR-USERNAME/discovery',   // your Cal.com or Calendly link
+    bookingUrl: 'https://cal.com/discovery-call-lwyh',   // your Cal.com or Calendly link
     whatsapp: 'https://wa.me/2348135306540',
     fallbackEmail: 'dataanddesigngeeks@gmail.com',
     cooldownMs: 30000,
