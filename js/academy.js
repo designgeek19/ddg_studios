@@ -40,7 +40,7 @@ const TRACKS = [
       ['Weeks 7-8', 'Dashboards in Power BI', 'Data modelling|DAX basics|Dashboard design', 'A business dashboard'],
       ['Weeks 9-10', 'Insight and storytelling', 'Choosing the right chart|Presenting to stakeholders|A/B testing basics', 'A stakeholder presentation'],
       ['Weeks 11-12', 'Capstone', 'Define a business question|Analyse and visualise|Present recommendations', 'An end-to-end analysis'] 
-    ] 
+    ]
   },
   { id: 'security', name: 'Defensive Cybersecurity', weeks: 12, level: 'Basic computer skills needed',
     blurb: 'Learn how systems are attacked and how to defend them, with hands-on labs.',
