@@ -18,17 +18,67 @@
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-  <!-- Add each case study here once it holds real content and its noindex tag is removed:
-  <url>
-    <loc>https://ddgstudios.netlify.app/case-study.html</loc>
-    <lastmod>2026-10-23</lastmod>
-    <priority>0.7</priority>
-  </url>
-  -->
   <url>
     <loc>https://ddgstudios.netlify.app/start-project.html</loc>
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <!-- CASE-STUDIES:START -->
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/carepoint-hospital-management.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/hr-payroll-design-system.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/digital-ajo-savings-app.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/microfinance-mobile-banking-app.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/last-mile-dispatch-app.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/healthcare-cloud-security-audit.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/retail-demand-forecasting.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/distribution-revenue-dashboard.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/field-survey-data-pipeline.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/online-store-paystack-checkout.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ddgstudios.netlify.app/case-studies/donor-impact-platform.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- CASE-STUDIES:END -->
 </urlset>

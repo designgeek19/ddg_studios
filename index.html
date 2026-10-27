@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data and Design Geeks Studio (DDGs) | Digital Innovation, Product Design & Engineering</title>
-<meta name="description" content="DDGs is a premier cross-disciplinary digital studio uniting specialists in Web & Mobile Development, Product Design, Data Analytics, and Cybersecurity to build enterprise-grade solutions.">
+<title>Data and Design Geeks Studio | Design, Data & Engineering</title>
+<meta name="description" content="DDGs is a cross-disciplinary studio for web and mobile development, product design, data analytics and cybersecurity. Based in Abuja, working worldwide.">
 <meta name="theme-color" content="#0f172a">
 <meta property="og:title" content="Data and Design Geeks Studio | Design, Data, Code & Security">
 <meta property="og:description" content="Transforming complex problems into intuitive, resilient, and beautifully designed digital solutions.">
 <link rel="canonical" href="https://ddgstudios.netlify.app/">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Data and Design Geeks Studio">
 <meta property="og:url" content="https://ddgstudios.netlify.app/">
 <meta property="og:image" content="https://ddgstudios.netlify.app/images/og-card.jpg">
 <meta property="og:image:width" content="1200">
@@ -900,6 +901,7 @@
 </script>
 
 <!-- Embedded Javascript Application Logic -->
+<script src="js/projects.js"></script>
 <script>
 const $ = (s, c = document) => c.querySelector(s);
 const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -994,20 +996,6 @@ $('#why').innerHTML = WHY_POINTS.map(([title, desc]) => `
 `).join('');
 
 /* ---- Project Case Studies ---- */
-const PROJECTS = [
-  ['Enterprise FinTech Hub', 'Web', 'photo-1460925895917-afdab827c52f', 'High-throughput transactional dashboard managing $40M+ monthly volume with zero latency.'],
-  ['HealthTech Clinical UX', 'Design', 'photo-1552664730-d307ca884978', 'Multi-role patient onboarding system cutting appointment abandonment by 42%.'],
-  ['Multi-Tenant SaaS System', 'Design', 'photo-1561070791-2526d30994b5', 'Unified component architecture and design tokens across 3 enterprise applications.'],
-  ['Brand Identity & App Refresh', 'Design', 'photo-1558655146-9f40138edfeb', 'Modern visual language and cross-platform UI overhaul for an emerging Series-A startup.'],
-  ['Secure Banking Mobile App', 'App', 'photo-1563013544-824ae1b704d3', 'Biometric auth, real-time FX transfers, and offline payment queues on iOS & Android.'],
-  ['Logistics Dispatch Engine', 'App', 'photo-1512941937669-90a1b58e7e9c', 'Sub-second driver matching and automated route optimization for 12,000 daily parcels.'],
-  ['Zero-Trust Cloud Audit', 'Security', 'photo-1550751827-4bd374c3f58b', 'Full penetration audit and IAM remediation securing confidential medical records.'],
-  ['AI Predictive Demand Platform', 'Data', 'photo-1559028012-481c04fa702d', 'Time-series inventory forecasting reducing supply-chain waste by 27%.'],
-  ['Real-Time BI Revenue Grid', 'Data', 'photo-1551288049-bebda4e38f71', 'Executive Power BI and SQL data warehouse integrating 9 separate legacy feeds.'],
-  ['Automated Survey ETL Pipeline', 'Data', 'photo-1504868584819-f8e8b4b6d7e3', 'Distributed Python and Spark pipeline processing 500k+ field survey responses.'],
-  ['Omnichannel Retail Web Portal', 'Web', 'photo-1556742049-0cfed4f6a45d', 'Sub-second headless e-commerce store with frictionless 1-click mobile checkout.'],
-  ['NGO Global Impact Tracker', 'Web', 'photo-1522071820081-009f0129c71c', 'Real-time donation transparency platform with automated audit reporting for donors.']
-];
 
 /* ---- Filters & Portfolio Render ---- */
 const categories = ['All', 'Design', 'Web', 'App', 'Data', 'Security'];
@@ -1340,12 +1328,11 @@ const STACK = {
   Web:['React','Next.js','TypeScript','PostgreSQL'], Design:['Figma','Design Tokens','Prototyping','User Testing'],
   App:['Flutter','Firebase','REST APIs','CI/CD'], Data:['Python','SQL','Power BI','Spark'], Security:['Pen Testing','IAM','Zero-Trust','OWASP']
 };
-/* Add a project here when its case-study page is ready: 'Project title': 'case-study-file.html' */
-const CASE_STUDIES = { 'Enterprise FinTech Hub': 'case-study.html' };
 
 function openProject(title) {
   const p = PROJECTS.find(x => x[0] === title); if (!p) return;
   const [t, cat, img, summary] = p;
+  const F = PROJECT_FACTS[t] || {};
   openModal(`
     <img src="https://images.unsplash.com/${img}?auto=format&fit=crop&w=1000&q=80" alt="${esc(t)} preview" class="w-full aspect-[16/8] object-cover" onerror="this.style.display='none'">
     <div class="p-8 sm:p-10">
@@ -1353,11 +1340,11 @@ function openProject(title) {
       <h3 class="mt-3 font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">${esc(t)}</h3>
       <p class="mt-3 text-slate-600 dark:text-slate-300 leading-relaxed">${esc(summary)}</p>
       <div class="mt-6 grid sm:grid-cols-3 gap-4 text-sm">
-        ${[['Challenge','Placeholder: describe the client problem and constraints.'],['Solution','Placeholder: summarize the approach, architecture, and design decisions.'],['Result','Placeholder: add measurable outcomes and client feedback.']].map(([h, d]) => `
+        ${[['Challenge', F.challenge], ['Solution', F.solution], ['Result', F.result]].filter(([, d]) => d).map(([h, d]) => `
         <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700"><h4 class="font-bold text-slate-900 dark:text-white">${h}</h4><p class="mt-1 text-xs text-slate-600 dark:text-slate-400">${d}</p></div>`).join('')}
       </div>
       <h4 class="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech &amp; tools</h4>
-      <div class="mt-3 flex flex-wrap gap-2">${STACK[cat].map(chip).join('')}</div>
+      <div class="mt-3 flex flex-wrap gap-2">${(F.tools || STACK[cat]).map(chip).join('')}</div>
       <div class="mt-8 flex flex-wrap gap-3">
         ${CASE_STUDIES[t] ? `<a href="${CASE_STUDIES[t]}" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">Read the full case study</a>` : ''}
         <a href="#contact" onclick="$('#modal').close()" class="inline-flex px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition">Discuss a similar project &rarr;</a>

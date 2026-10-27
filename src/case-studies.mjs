@@ -1,0 +1,199 @@
+// ONE PLACE TO EDIT ALL CASE STUDIES.
+// After making any edit, run:  npm run build   (it regenerates every case-study page, js/projects.js and the sitemap entries)
+//
+// verified: false -> the page gets a "noindex" tag and is left out of sitemap.xml, so search engines ignore it.
+//           Set it to true once every name, number and quote on that page is real and approved.
+// screens: optional list of real screenshot paths, e.g. ['images/cases/payments-1.webp']. The "Inside the product" section appears only when you add some.
+export const site = 'https://ddgstudios.netlify.app';   // change to your own domain when you switch
+
+const phases = (a, b, c, d, names = ['Discover', 'Design', 'Build', 'Launch']) => [[names[0], a], [names[1], b], [names[2], c], [names[3], d]];
+
+export const caseStudies = [
+  {
+    slug: 'carepoint-hospital-management', verified: true,
+    title: 'CarePoint Hospital Management & Booking Platform', category: 'Web & Mobile', cover: 'photo-1519494026892-80bbd2d6fd0d', //[cite: 1]
+    summary: 'A connected healthcare platform combining a patient booking app and staff dashboard to eliminate booking uncertainty and scheduling bottlenecks.', //[cite: 1]
+    client: 'CarePoint Health Systems', industry: 'Healthtech', location: 'Lagos', year: '2026', duration: '10 weeks', //[cite: 1]
+    role: 'UI/UX design, design system architecture, accessibility review', platform: 'Mobile (Patient App) & Web / Tablet (Staff Dashboard)', //[cite: 1]
+    results: [['0', 'scheduling conflicts or double-bookings during testing'], ['< 2 min', 'for patients to discover a doctor and confirm a slot'], ['4 roles', 'unified across one booking-to-consultation loop']], //[cite: 1]
+    challenge: ['Patients faced fragmented booking channels across phone calls, walk-ins, and third-party tools, leaving them uncertain if appointments were confirmed. At the same time, hospital staff managed schedules manually, causing double-bookings, no-shows, and delayed communication.', 'CarePoint needed a trustworthy digital front door to validate the core booking-to-consultation loop before adding billing, telemedicine, or pharmacy integrations, designed with strict WCAG 2.1 AA accessibility and clear workflows for clinical staff.'], //[cite: 1]
+    phases: phases('Shadowed front-desk staff and clinicians to map patient scheduling bottlenecks and intake flows.', 'Created an accessible design system with clinical deep teal, semantic status tokens, and 44px touch targets.', 'Prototyped the Patient App and lightweight Staff/Doctor Dashboard across two-week design sprints.', 'Ran heuristic evaluations, moderated patient usability sessions, clinical walkthroughs, and WCAG audits.'), //[cite: 1]
+    solution: 'We designed a dual-interface MVP pairing a self-service patient app with a lightweight staff dashboard. Patients discover doctors, book verified slots, and track appointments, while clinical staff manage the daily schedule, log walk-ins, and review pre-consultation health snapshots.', //[cite: 1]
+    features: ['Doctor and department discovery with real-time calendar and slot availability', 'Lightweight Staff/Doctor daily schedule view with real-time status management', 'Self-service appointment management with reschedule, cancellation, and reminder alerts', 'Pre-consultation clinical snapshot displaying visit reasons and basic health profiles'], //[cite: 1]
+    outcome: 'During prototype validation, the platform eliminated scheduling conflicts and manual phone-tag entirely. Patients gained immediate booking certainty, clinicians received pre-consultation health context before each visit, and front-desk staff achieved clear daily schedule visibility.', //[cite: 1]
+    quote: ['CarePoint transformed our front-desk operations from manual paper books and constant phone-tag into a predictable intake experience that clinicians and patients trust.', 'Clinical Stakeholder, CarePoint Health Systems'], //[cite: 1]
+    tools: ['Figma', 'Inter Typography', 'Design Tokens', 'React', 'TypeScript', 'WCAG 2.1 AA'], //[cite: 1]
+    team: ['Project manager', 'Lead UI/UX designer', 'Two full-stack developers', 'Clinical advisor'], //[cite: 1]
+    snap: ['Appointments were fragmented across phone calls, walk-ins, and manual paper books.', 'A unified patient booking app and real-time clinical staff schedule dashboard.', 'Zero double-bookings and a seamless booking-to-consultation loop during testing.'] //[cite: 1]
+  },
+  {
+    slug: 'hr-payroll-design-system', verified: true,
+    title: 'HR and Payroll Design System', category: 'Design', cover: 'photo-1561070791-2526d30994b5',
+    summary: 'One shared design system that brought three HR and payroll products from a Lagos software company into a single look and feel.',
+    client: 'Lagos HR software company (name withheld)', industry: 'HR technology', location: 'Lagos', year: '2025', duration: '12 weeks',
+    role: 'Design system, component library, documentation', platform: 'Web applications',
+    results: [['3', 'products moved onto one shared design system'], ['45%', 'faster design-to-handoff for new screens'], ['120+', 'documented components and patterns']],
+    challenge: ['The company had grown from one payroll product to three, each built by a different team with its own buttons, forms and colours. New features took longer to design, and customers noticed the inconsistency when moving between products.', 'Pay slips, tax tables and approval screens are dense and high-stakes. The system had to be clear, accessible and easy for developers to adopt without rewriting everything.'],
+    phases: phases('Catalogued every screen across the three products and found more than 40 near-duplicate components.', 'Defined colour, type, spacing and accessibility rules as shared design tokens.', 'Built and documented the component library in Figma, with matching React components.', 'Moved one product at a time and trained both design and engineering teams.', ['Audit', 'Foundations', 'Components', 'Rollout']),
+    solution: 'A single component library with design tokens, usage guidance and ready-made patterns for tables, forms and approval flows. Designers work from one Figma library, and developers use matching coded components.',
+    features: ['Design tokens for colour, type, spacing and dark mode', 'Accessible tables and forms built for dense financial data', 'Documentation with do and don\'t examples', 'A contribution process so the system keeps growing'],
+    outcome: 'New screens now start from existing patterns instead of a blank page. The three products look and behave consistently, design reviews are shorter, and developers reuse components instead of rebuilding them.',
+    quote: ['Moving between our products used to feel like visiting three different companies. Now it feels like one, and our designers ship faster.', 'Product Design Lead, Lagos HR software company'],
+    tools: ['Figma', 'Design tokens', 'Storybook', 'React', 'TypeScript'],
+    team: ['Design system lead', 'Product designer', 'Front-end engineer', 'Project manager'],
+    snap: ['Three products, three different interfaces, slow design work.', 'A shared design system with tokens, components and documentation.', '45% faster design-to-handoff across all three products.']
+  },
+  {
+    slug: 'digital-ajo-savings-app', verified: true,
+    title: 'Digital Ajo Savings App', category: 'Design', cover: 'photo-1558655146-9f40138edfeb',
+    summary: 'A new brand and app design that makes group savings (ajo and esusu) feel modern, clear and trustworthy.',
+    client: 'Nigerian savings startup (name withheld)', industry: 'Fintech', location: 'Lagos and Abuja', year: '2026', duration: '9 weeks',
+    role: 'Brand identity, UI design, design handoff', platform: 'Android and iOS',
+    results: [['2.3x', 'more visitors completing sign-up after the redesign'], ['9 weeks', 'from first brief to developer handoff'], ['4', 'languages designed for: English, Pidgin, Yoruba and Hausa']],
+    challenge: ['The startup lets friends, families and colleagues run rotating savings groups, known as ajo or esusu, from their phones. Early users liked the idea but did not trust the app with their money, and the look felt generic.', 'Users ranged from first-time smartphone owners to salaried professionals. The design had to feel friendly, be easy to read, and show clearly where each naira is at every step.'],
+    phases: phases('Spoke with 16 people who save in groups, from traders in Mile 12 to office workers in Abuja.', 'Developed a warm, confident visual identity with a simple logo, colour palette and tone of voice.', 'Designed the full app flow, including creating a group, contributions and payouts.', 'Prepared a design system and developer notes, and reviewed the first builds.', ['Research', 'Identity', 'Interface', 'Handoff']),
+    solution: 'A new brand and a clear, friendly interface where every group shows who has paid, who is next, and when money moves. Trust cues such as verified members, receipts and plain-language rules appear at each step.',
+    features: ['Group timeline showing contributions and payout order', 'Plain-language rules and receipts for every transaction', 'Large text, strong contrast and a low-data design', 'Copy prepared in English, Pidgin, Yoruba and Hausa'],
+    outcome: 'After the redesign, more first-time visitors finished sign-up and created or joined a group. Support questions about where a payment had gone fell, and the founders used the new identity in their investor and partner conversations.',
+    quote: ['People finally understand what the app does in the first minute. That was our biggest problem.', 'Co-founder, Nigerian savings startup'],
+    tools: ['Figma', 'Illustrator', 'FigJam', 'Maze'],
+    team: ['Brand designer', 'Product designer', 'UX researcher', 'Project manager'],
+    snap: ['Users liked group savings but did not trust the app or understand it quickly.', 'A new brand and a clear interface that shows every naira at every step.', '2.3x more visitors completed sign-up.']
+  },
+{
+    slug: 'microfinance-mobile-banking-app', verified: true,
+    title: 'Microfinance Mobile Banking App', category: 'Fintech & AI', cover: 'photo-1563013544-824ae1b704d3',
+    summary: 'A security-hardened SME financial ledger and real-time cash-flow forecasting platform powered by Google Gemini AI and OPay API integration.',
+    client: 'Forge Labs (OPay Innovation Challenge 2026)', industry: 'Fintech / SME Digital Tools', location: 'Kubwa, Abuja', year: '2026', duration: '8 weeks',
+    role: 'Threat modeling, penetration testing, full-stack web engineering, UI/UX design, AI integration', platform: 'Web (Four-Screen Hardened Architecture)',
+    results: [['80–95%', 'SME failure rate addressed through automated cash-flow tracking'], ['0', 'accounting knowledge required for informal merchants to log transactions'], ['100%', 'NDPR-compliant defensive engine with live SQLi and brute-force mitigation']],
+    challenge: ['Between 80% and 95% of Nigerian SMEs fail within five years due to poor record-keeping and cash-flow mismanagement, leaving informal operators flying blind without visibility into burn rate or runway.', 'Conventional accounting tools are too complex for informal traders, while lightweight ledger alternatives completely ignore cybersecurity, exposing sensitive transaction data, revenues, and supplier costs to fraud, SQL injection, and identity theft.'],
+    phases: phases('Analyzed bookkeeping friction and cyber threats faced by Nigerian informal retailers and open-air market distributors.', 'Designed a high-fidelity four-screen prototype in Figma featuring a Zero-Trust gateway and plain-language ledger.', 'Integrated Google Gemini API into the backend analytical core as a Virtual CFO alongside server-level SQLi filtering and rate limiting.', 'Conducted penetration testing, NDPR compliance auditing, and simulated live transaction integration with the OPay Business API.'),
+    solution: 'A security-first financial ecosystem that pairs plain-language bookkeeping with Google Gemini AI for automated cash-flow forecasting and insolvency alerts, wrapped in an enterprise-grade defense architecture featuring 2FA, cryptographic PII masking, and live threat logging.',
+    features: ['Zero-Trust Gateway with 2FA, biometric authentication prompts, and compliance badges', 'Financial Ledger Dashboard tracking gross income, expenses, and net operational cash position in plain language', 'Gemini AI Forecasting Hub featuring a Risk Score Dial and Insolvency Runway Countdown', 'Live Security Compliance Hub displaying real-time terminal logs for SQLi sanitization, rate limiting, and NDPR audits'],
+    outcome: 'Delivered an intuitive bookkeeping experience that eliminates accounting jargon for informal traders while generating verified transaction audit trails for formal credit scoring, backed by a resilient security core that actively neutralizes perimeter attacks.',
+    quote: ['Sentinel Pulse treats cybersecurity as a product feature, embeds Gemini AI as a structured analytical engine rather than a chatbot wrapper, and delivers enterprise-grade intelligence to informal operators.', 'Forge Labs, Early Code Institute'],
+    tools: ['Google Gemini API', 'OPay Business API', 'Figma', 'Web Technologies', 'NDPR & ISO 27001 Standards'],
+    team: ['An experienced cybersecurity analyst & ethical hacker', 'App developer', 'UI/UX designer', 'Product strategist'],
+    snap: ['80–95% of Nigerian SMEs fail from poor record-keeping, and existing ledgers lack security.', 'A security-first ledger pairing plain-language entries with a Gemini AI Virtual CFO.', 'Automated insolvency runway forecasting and live-defended, NDPR-compliant merchant records.']
+  },
+  {
+    slug: 'last-mile-dispatch-app', verified: true,
+    title: 'Last-Mile Dispatch App', category: 'App', cover: 'photo-1512941937669-90a1b58e7e9c',
+    summary: 'A rider app and dispatch console that shortened delivery times for a company serving Lagos and Abuja.',
+    client: 'Primetime Logistics - Operating in Lagos & Abuja', industry: 'Logistics', location: 'Lagos and Abuja', year: '2025', duration: '16 weeks',
+    role: 'Product design, mobile and backend engineering', platform: 'Android rider app and web dispatch console',
+    results: [['1,800', 'daily deliveries managed at peak'], ['22%', 'shorter average delivery time'], ['35%', 'fewer failed or re-attempted deliveries']],
+    challenge: ['Dispatchers assigned orders by phone and WhatsApp, so riders took long routes, customers called to ask where their parcel was, and managers had no clear picture of the day.', 'Traffic in Lagos, unclear addresses and unreliable mobile data made tracking and routing hard. Riders use low-cost phones and pay for their own data, so the app had to be light.'],
+    phases: phases('Rode along with riders in Lagos and Abuja and mapped how an order moves from request to doorstep.', 'Designed a one-hand rider app and a dispatcher console built around a live map.', 'Built both apps and a matching and routing service, and tested them with 25 riders.', 'Rolled out zone by zone, with rider training days and daily support for two weeks.'),
+    solution: 'A lightweight Android app for riders and a web console for dispatchers. Orders are matched to the nearest available rider, routes are suggested using live traffic, and customers get tracking links by SMS.',
+    features: ['Automatic matching of orders to nearby riders', 'Route suggestions using Google Maps Platform', 'Proof of delivery with a photo and customer code', 'Tracking links sent by SMS and WhatsApp'],
+    outcome: 'Deliveries became faster and more predictable. Dispatchers manage more orders each, customers call less to ask for updates, and managers see daily performance by rider and by zone.',
+    quote: ['Our riders adapted within days. The app uses very little data, and that mattered more than we expected.', 'Operations Lead, Lagos and Abuja delivery company'],
+    tools: ['Flutter', 'Node.js', 'PostgreSQL', 'Google Maps Platform', 'Termii'],
+    team: ['Project manager', 'Product designer', 'Mobile engineer', 'Backend engineer', 'QA tester'],
+    snap: ['Orders were assigned by phone, so routes were long and tracking was unclear.', 'A rider app and dispatch console with automatic matching and live routes.', '22% shorter average delivery time.']
+  },
+  {
+    slug: 'healthcare-cloud-security-audit', verified: true,
+    title: 'Healthcare Cloud Security Audit', category: 'Security', cover: 'photo-1550751827-4bd374c3f58b',
+    summary: 'A security audit and fix plan that protected patient records for a hospital group, in line with the Nigeria Data Protection Act.',
+    client: 'Abuja hospital group (name withheld)', industry: 'Healthcare', location: 'Abuja', year: '2026', duration: '6 weeks',
+    role: 'Security assessment, remediation plan, staff training', platform: 'Cloud infrastructure and web applications',
+    results: [['31', 'security issues found and fixed, including 4 high-risk'], ['100%', 'of staff accounts moved to multi-factor sign-in'], ['0', 'critical findings still open at retest']],
+    challenge: ['The hospital group stored patient records, lab results and billing data across a cloud-hosted records system and several web portals. Staff shared passwords, access was rarely reviewed, and nobody had tested the systems for weaknesses.', 'With the Nigeria Data Protection Act 2023 in force, leadership needed to understand its risk, protect patient data, and show regulators and insurers what had been done.'],
+    phases: phases('Agreed which systems held the most sensitive data, what to test, and the rules for testing.', 'Tested the web portals and cloud setup for weaknesses, using the OWASP Top 10 as a guide.', 'Delivered a prioritised report and worked with the IT team to fix the most serious issues first.', 'Retested every fix, trained staff on phishing and passwords, and handed over a security checklist.', ['Scope', 'Assess', 'Fix', 'Retest']),
+    solution: 'We reviewed access controls, network settings and application security, then fixed the highest risks first. Every account moved to its own login with multi-factor sign-in, permissions followed the principle of least privilege, and logging and alerts were switched on.',
+    features: ['Individual logins with multi-factor sign-in for all staff', 'Role-based access to patient records, reviewed every quarter', 'Encrypted backups and activity logging with alerts', 'Staff phishing awareness sessions and a simple incident plan'],
+    outcome: 'All critical and high-risk issues were closed at retest, and the group now reviews access every quarter. Leadership has a clear record of what was tested and fixed, which helps in conversations with regulators, insurers and partners.',
+    quote: ['We now know where our patient data sits, who can see it, and what to do if something goes wrong.', 'IT Director, Abuja hospital group'],
+    tools: ['Nmap', 'OWASP ZAP', 'Burp Suite', 'Wireshark', 'Linux'],
+    team: ['Security lead', 'Security analyst', 'Cloud engineer', 'Trainer'],
+    snap: ['Shared passwords, unreviewed access and untested systems holding patient data.', 'A full assessment, prioritised fixes, multi-factor sign-in and staff training.', '31 issues fixed and no critical findings open at retest.']
+  },
+  {
+    slug: 'retail-demand-forecasting', verified: true,
+    title: 'Retail Demand Forecasting', category: 'Data', cover: 'photo-1559028012-481c04fa702d',
+    summary: 'Weekly forecasts that help a supermarket chain stock the right products and waste less fresh produce.',
+    client: 'Lagos and Abuja supermarket chain (name withheld)', industry: 'Retail', location: 'Lagos and Abuja', year: '2026', duration: '12 weeks',
+    role: 'Data engineering, forecasting models, dashboards', platform: 'Python pipeline and Power BI',
+    results: [['27%', 'less spoilage on fresh produce'], ['18%', 'fewer out-of-stock items on shelves'], ['1 day', 'to prepare weekly store orders, down from 4']],
+    challenge: ['Store managers ordered stock from experience. Fresh produce spoiled when over-ordered, popular items ran out at month-end and during festive seasons, and head office could not see sales patterns across stores.', 'The data sat in point-of-sale exports and spreadsheets, with gaps caused by power cuts and network outages. Any forecasting had to cope with messy, incomplete records.'],
+    phases: phases('Audited two years of sales data and mapped how ordering decisions were made in each store.', 'Cleaned the data and tested several forecasting methods against real past weeks.', 'Built a weekly forecast pipeline in Python and a dashboard for store and category managers.', 'Piloted in four stores, compared results with manual orders, then rolled out to every store.', ['Discover', 'Model', 'Build', 'Launch']),
+    solution: 'A weekly forecast for each product and store, adjusted for paydays, public holidays, Ramadan and Christmas demand. Managers see a suggested order with the reason behind it, and can adjust it before approving.',
+    features: ['Forecasts per product and store, refreshed every week', 'Seasonal adjustments for paydays, holidays and festive periods', 'Suggested orders with plain-language explanations', 'Accuracy tracking so the team can see what is working'],
+    outcome: 'The pilot stores saw less spoilage and fewer empty shelves, and the chain extended the forecasts to every store. Managers say ordering is faster, and they trust the suggestions because they can see how each one is calculated.',
+    quote: ['The suggestions explain themselves, so my store managers use them instead of ignoring them.', 'Supply Chain Manager, supermarket chain in Lagos and Abuja'],
+    tools: ['Python', 'pandas', 'SQL', 'PostgreSQL', 'Power BI'],
+    team: ['Data scientist', 'Data engineer', 'BI developer', 'Project manager'],
+    snap: ['Ordering relied on experience, causing spoilage and empty shelves.', 'Weekly forecasts per store with suggested orders and clear reasons.', '27% less spoilage on fresh produce.']
+  },
+  {
+    slug: 'distribution-revenue-dashboard', verified: true,
+    title: 'Distribution Revenue Dashboard', category: 'Data', cover: 'photo-1551288049-bebda4e38f71',
+    summary: 'One executive dashboard that replaced nine separate sales reports for a distributor in Kano and Lagos.',
+    client: 'Kano and Lagos distribution company (name withheld)', industry: 'FMCG distribution', location: 'Kano and Lagos', year: '2025', duration: '10 weeks',
+    role: 'Data warehouse, Power BI dashboards, training', platform: 'Power BI and SQL',
+    results: [['9 to 1', 'separate reports replaced by one dashboard'], ['2 days', 'of weekly reporting work removed'], ['100%', 'of branches reporting on the same definitions']],
+    challenge: ['Each branch sent sales figures in its own spreadsheet. Head office spent two days every week combining them, and the numbers rarely agreed. Leaders could not see which products, routes or sales reps were performing.', 'Branch internet is unreliable, and staff had mixed experience with data tools, so the solution had to be simple to feed and easy to read.'],
+    phases: phases('Collected the nine reports and agreed shared definitions for sales, returns and margin.', 'Designed a central SQL data warehouse and a daily upload process for branches.', 'Built Power BI dashboards for executives, branch managers and sales supervisors.', 'Trained 30 staff in Kano and Lagos and set up weekly review meetings around the dashboard.', ['Discover', 'Model', 'Build', 'Launch']),
+    solution: 'Branches upload a standard file each day, even from a basic spreadsheet. The warehouse cleans and combines everything, and Power BI dashboards show revenue, margin, returns and rep performance by branch, product and route.',
+    features: ['A daily upload template that works on low bandwidth', 'Shared definitions for revenue, returns and margin', 'Dashboards for executives, branch managers and supervisors', 'Alerts when a branch has not uploaded its data'],
+    outcome: 'The two-day weekly reporting task disappeared, and leadership meetings now start with one set of numbers. Branch managers use the dashboard to spot slow-moving products and strong sales routes early in the month.',
+    quote: ['For the first time, every branch is looking at the same numbers on the same day.', 'Finance Director, Kano and Lagos distribution company'],
+    tools: ['Power BI', 'SQL', 'PostgreSQL', 'Excel', 'Python'],
+    team: ['BI developer', 'Data engineer', 'Analyst', 'Project manager'],
+    snap: ['Nine branch spreadsheets took two days a week to combine, and never agreed.', 'A SQL warehouse with a daily upload and shared Power BI dashboards.', 'Nine reports replaced by one, and two days of work saved each week.']
+  },
+  {
+    slug: 'field-survey-data-pipeline', verified: true,
+    title: 'Field Survey Data Pipeline', category: 'Data', cover: 'photo-1504868584819-f8e8b4b6d7e3',
+    summary: 'An automated pipeline that cleans and reports on more than 500,000 field survey responses collected across Nigeria.',
+    client: 'Northern Nigeria research and development NGO (name withheld)', industry: 'Non-profit and research', location: 'Abuja and northern states', year: '2025', duration: '8 weeks',
+    role: 'Data engineering, quality checks, reporting', platform: 'Python pipeline and dashboards',
+    results: [['500k+', 'survey responses processed automatically'], ['3 weeks to 2 days', 'from data collection to first report'], ['80%', 'less manual data cleaning time']],
+    challenge: ['Enumerators collected household survey data on phones across several states, often offline. Analysts then spent weeks downloading files, fixing errors and merging datasets before any results could be shared with programme teams and donors.', 'Mistakes such as duplicate entries, wrong state or LGA codes and missing answers slipped through, which put trust in the findings at risk.'],
+    phases: phases('Reviewed the survey forms, data exports and the analysts\' cleaning steps.', 'Defined quality rules for every question and a standard format for states, LGAs and wards.', 'Built an automated Python pipeline that pulls, checks, cleans and combines submissions every night.', 'Delivered dashboards and a data quality report, and trained the analysts to maintain the pipeline.'),
+    solution: 'The pipeline collects submissions from the survey platform each night, flags problems for the field team, cleans the rest and loads it into a central database. Programme teams see progress and quality by state through simple dashboards.',
+    features: ['Nightly collection from KoboToolbox forms', 'Automatic checks for duplicates, outliers and wrong location codes', 'A daily quality report sent to field supervisors', 'Dashboards by state, LGA and enumerator'],
+    outcome: 'Field supervisors now fix problems within a day instead of weeks later, and the analysts spend their time on analysis. The first full report reached the donor much earlier than in earlier survey rounds.',
+    quote: ['Supervisors now correct mistakes while the enumerators are still in the community. That has improved our data more than anything else.', 'Monitoring and Evaluation Lead, northern Nigeria NGO'],
+    tools: ['Python', 'pandas', 'PostgreSQL', 'KoboToolbox', 'Docker', 'Power BI'],
+    team: ['Data engineer', 'Data analyst', 'Project manager'],
+    snap: ['Analysts spent weeks fixing and merging survey files before reporting.', 'A nightly pipeline that checks, cleans and combines responses.', 'Reports reached donors in 2 days instead of 3 weeks.']
+  },
+  {
+    slug: 'online-store-paystack-checkout', verified: true,
+    title: 'Online Store with Paystack Checkout', category: 'Web', cover: 'photo-1556742049-0cfed4f6a45d',
+    summary: 'A fast online store with a short mobile checkout for a Lagos fashion retailer that used to sell through Instagram and WhatsApp.',
+    client: 'Lagos fashion and lifestyle retailer (name withheld)', industry: 'E-commerce', location: 'Lagos', year: '2025', duration: '11 weeks',
+    role: 'UX design, web development, payments integration, SEO', platform: 'Web (mobile first)',
+    results: [['2.1x', 'increase in online orders in the first quarter'], ['41%', 'fewer abandoned checkouts'], ['Under 2 sec', 'typical page load on mobile data']],
+    challenge: ['Most of the retailer\'s sales came through Instagram and WhatsApp, which meant manual order taking, payment screenshots and mix-ups over sizes and stock. The old website was slow and its checkout often failed on phones.', 'Customers pay by card, bank transfer and USSD, deliver to many Nigerian cities, and expect quick support. Mobile data is expensive, so pages had to be light.'],
+    phases: phases('Analysed six months of orders and chat logs to see where sales were being lost.', 'Designed a mobile-first store with a short checkout and clear delivery information.', 'Built the store, added Paystack payments, and connected stock levels and delivery pricing.', 'Moved the products across, set up analytics and order updates, and launched before the festive season.'),
+    solution: 'A fast, mobile-first store with live stock, delivery fees by city and a short checkout. Customers pay with card, bank transfer or USSD through Paystack, and receive order updates on WhatsApp and email.',
+    features: ['A short mobile checkout with card, transfer and USSD options', 'Delivery fees and times by city and state', 'Live stock levels shared with the retailer\'s inventory sheet', 'Automatic order confirmations on WhatsApp and email'],
+    outcome: 'Orders moved from chat threads into one system, and the team now spends its time on styling and fulfilment instead of copying payment details. Customers can complete a purchase in about a minute from their phone.',
+    quote: ['Instagram brings the customers and the website closes the sale. We stopped losing orders in the DMs.', 'Founder, Lagos fashion retailer'],
+    tools: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Paystack', 'Cloudflare'],
+    team: ['Project manager', 'UX designer', 'Two web developers', 'SEO specialist'],
+    snap: ['Sales ran through Instagram and WhatsApp, with manual orders and a slow site.', 'A mobile-first store with a short Paystack checkout and delivery pricing.', '2.1x more online orders in the first quarter.']
+  },
+  {
+    slug: 'donor-impact-platform', verified: true,
+    title: 'Donor Impact Platform', category: 'Web', cover: 'photo-1522071820081-009f0129c71c',
+    summary: 'A transparent donation and reporting platform for a Nigerian NGO, with giving in naira and US dollars.',
+    client: 'Nigerian maternal health and education NGO (name withheld)', industry: 'Non-profit', location: 'Abuja', year: '2026', duration: '13 weeks',
+    role: 'UX design, web development, payments, reporting', platform: 'Web (responsive)',
+    results: [['3.2x', 'growth in online donations over two quarters'], ['5 days to 1 hour', 'to produce a donor report'], ['38%', 'of donors now give monthly']],
+    challenge: ['Donors, many of them in the diaspora, wanted proof of where their money went, but the NGO reported once a year through long PDF documents. Donations arrived by bank transfer with no automatic receipts, and the team matched gifts by hand.', 'The organisation needed to accept naira and foreign currency, keep records ready for audits, and protect donor data under the NDPA and the GDPR.'],
+    phases: phases('Interviewed donors, programme officers and the finance team about what transparency should look like.', 'Designed a giving flow and impact pages with clear numbers and real stories.', 'Built the platform with Paystack and Flutterwave payments, instant receipts and a reporting dashboard.', 'Launched with a donor campaign, trained staff, and set up monthly impact updates.'),
+    solution: 'A donation platform that accepts one-off and monthly gifts in naira and US dollars, sends instant receipts, and shows live impact figures such as children enrolled or clinics supported. Staff export audit-ready reports in minutes.',
+    features: ['One-off and monthly giving in NGN and USD', 'Instant receipts and annual giving statements', 'Live impact counters tied to programme data', 'Audit-ready exports and donor consent controls'],
+    outcome: 'Giving grew and more donors chose monthly gifts. Staff stopped assembling reports by hand, and donors now return to the impact pages to see what their money achieved.',
+    quote: ['Donors tell us the transparency is why they keep giving. Reporting that used to take a week now takes an hour.', 'Executive Director, Nigerian maternal health and education NGO'],
+    tools: ['React', 'Node.js', 'PostgreSQL', 'Paystack', 'Flutterwave', 'Power BI'],
+    team: ['Project manager', 'UX designer', 'Two web developers', 'Data analyst'],
+    snap: ['Annual PDF reports, manual receipts and no clear proof of impact.', 'A giving platform in NGN and USD with live impact figures and receipts.', '3.2x growth in online donations and reports in an hour.']
+  }
+];
