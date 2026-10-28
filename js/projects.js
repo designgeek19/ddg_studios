@@ -20,9 +20,9 @@ const PROJECTS = [
   ],
   [
     "Microfinance Mobile Banking App",
-    "App",
+    "Fintech & AI",
     "photo-1563013544-824ae1b704d3",
-    "A secure Android and iOS banking app for a microfinance bank, built for patchy networks and entry-level phones."
+    "A security-hardened SME financial ledger and real-time cash-flow forecasting platform powered by Google Gemini AI and OPay API integration."
   ],
   [
     "Last-Mile Dispatch App",
@@ -118,15 +118,15 @@ const PROJECT_FACTS = {
     ]
   },
   "Microfinance Mobile Banking App": {
-    "challenge": "Branch queues for simple requests, and a limited USSD service.",
-    "solution": "A secure Flutter app with biometric login and an offline-safe transfer queue.",
-    "result": "58% fewer branch visits for balances and statements.",
+    "challenge": "80–95% of Nigerian SMEs fail from poor record-keeping, and existing ledgers lack security.",
+    "solution": "A security-first ledger pairing plain-language entries with a Gemini AI Virtual CFO.",
+    "result": "Automated insolvency runway forecasting and live-defended, NDPR-compliant merchant records.",
     "tools": [
-      "Flutter",
-      "Dart",
-      "Firebase",
-      "REST APIs",
-      "CI/CD"
+      "Google Gemini API",
+      "OPay Business API",
+      "Figma",
+      "Web Technologies",
+      "NDPR & ISO 27001 Standards"
     ]
   },
   "Last-Mile Dispatch App": {
