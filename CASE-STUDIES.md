@@ -21,7 +21,7 @@ Open `src/case-studies.mjs`. Each project has these parts:
 
 | Field | Where it shows |
 |---|---|
-| `title`, `category`, `summary`, `cover` | The card on the home page and the page header |
+| `title`, `category`, `summary`, `cover` | The card on the home page and the page header. The filter buttons on the home page are built from your `category` values |
 | `client`, `industry`, `location`, `year`, `duration`, `role`, `platform` | The six facts under the cover image |
 | `results` | The three big numbers (keep them measurable and true) |
 | `challenge`, `phases`, `solution`, `features`, `outcome` | The main text sections |
@@ -36,6 +36,23 @@ Rules of thumb:
 - Keep `summary` under about 130 characters.
 - Use the client's real name only with their written permission. Otherwise keep "(name withheld)".
 - Only publish numbers you can back up, and quotes the person has approved.
+
+## Cover images
+1. Put each cover in `images/projects/`, named like `carepoint-cover.png` (or `.jpg`).
+2. Set the project's `cover` in `src/case-studies.mjs` to that path, for example `cover: 'images/projects/carepoint-cover.png'`.
+3. Run `npm run images`. It leaves your original untouched and creates three fast versions next to it:
+   - `carepoint-cover.webp` for the case-study page
+   - `carepoint-cover-card.webp` for the home-page cards and popups
+   - `carepoint-cover-og.jpg` for social sharing (WhatsApp, LinkedIn, X)
+4. Run `npm run build`, then commit the new files with the original.
+
+The build uses the fast versions automatically. If they don't exist yet it falls back to your original file and prints a warning, so run `npm run images` first. The pictures are never cropped: if one doesn't fit the frame, it sits on a soft blurred copy of itself.
+
+Other things to know:
+- Original PNGs are large (about 1.5 MB each). They stay in your repo but visitors never download them.
+- Re-running `npm run images` only processes images that changed. Add `--force` to redo everything.
+- Page titles are shortened automatically when they would be too long for Google. To set one yourself, add `seoTitle: '...'` to the project.
+- Removing a project from `src/case-studies.mjs` now deletes its old page in `case-studies/` the next time you build.
 
 ## Add a new case study
 Copy one block in `src/case-studies.mjs`, give it a new `slug` (the web address), fill in every field, and run `npm run build`. It appears on the home page and gets its own page automatically.

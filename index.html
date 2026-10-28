@@ -998,12 +998,12 @@ $('#why').innerHTML = WHY_POINTS.map(([title, desc]) => `
 /* ---- Project Case Studies ---- */
 
 /* ---- Filters & Portfolio Render ---- */
-const categories = ['All', 'Design', 'Web', 'App', 'Data', 'Security'];
+const categories = ['All', ...new Set(PROJECTS.map(p => p[1]))];
 let currentCat = 'All';
 let showAll = false;
 
 $('#filters').innerHTML = categories.map(cat => `
-  <button data-cat="${cat}" aria-pressed="${cat === 'All'}" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-800 aria-pressed:bg-brand-600 aria-pressed:text-white aria-pressed:border-brand-600 transition">
+  <button data-cat="${esc(cat)}" aria-pressed="${cat === 'All'}" class="filter-btn px-4 py-2 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-800 aria-pressed:bg-brand-600 aria-pressed:text-white aria-pressed:border-brand-600 transition">
     ${cat}
   </button>
 `).join('');
@@ -1017,10 +1017,10 @@ function renderProjects() {
     <article tabindex="0" role="button" data-t="${esc(title)}" aria-label="Open ${esc(title)} case study" class="proj reveal group cursor-pointer overflow-hidden rounded-3xl bg-white/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 shadow-md hover:shadow-2xl transition duration-300 flex flex-col">
       <div class="relative overflow-hidden aspect-[16/10] bg-slate-200 dark:bg-slate-800">
         <img 
-          loading="lazy" width="700" height="438" decoding="async"
-          src="https://images.unsplash.com/${imgId}?auto=format&fit=crop&w=700&q=80" 
+          loading="lazy" width="800" height="500" decoding="async"
+          src="${coverSrc(imgId, 800)}" 
           alt="${esc(title)} preview visual" 
-          onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80'"
+          onerror="this.remove()"
           class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         >
         <span class="absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-950/70 text-white backdrop-blur-md border border-white/20">
@@ -1334,7 +1334,7 @@ function openProject(title) {
   const [t, cat, img, summary] = p;
   const F = PROJECT_FACTS[t] || {};
   openModal(`
-    <img src="https://images.unsplash.com/${img}?auto=format&fit=crop&w=1000&q=80" alt="${esc(t)} preview" class="w-full aspect-[16/8] object-cover" onerror="this.style.display='none'">
+    <img src="${coverSrc(img, 1000)}" alt="${esc(t)} cover image" width="800" height="500" class="w-full aspect-[16/9] object-cover" onerror="this.style.display='none'">
     <div class="p-8 sm:p-10">
       <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800">${esc(cat)}</span>
       <h3 class="mt-3 font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-white">${esc(t)}</h3>
@@ -1344,7 +1344,7 @@ function openProject(title) {
         <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700"><h4 class="font-bold text-slate-900 dark:text-white">${h}</h4><p class="mt-1 text-xs text-slate-600 dark:text-slate-400">${d}</p></div>`).join('')}
       </div>
       <h4 class="mt-6 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Tech &amp; tools</h4>
-      <div class="mt-3 flex flex-wrap gap-2">${(F.tools || STACK[cat]).map(chip).join('')}</div>
+      <div class="mt-3 flex flex-wrap gap-2">${(F.tools || STACK[cat] || []).map(chip).join('')}</div>
       <div class="mt-8 flex flex-wrap gap-3">
         ${CASE_STUDIES[t] ? `<a href="${CASE_STUDIES[t]}" class="inline-flex px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-white font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">Read the full case study</a>` : ''}
         <a href="#contact" onclick="$('#modal').close()" class="inline-flex px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold transition">Discuss a similar project &rarr;</a>

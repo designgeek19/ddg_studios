@@ -11,6 +11,19 @@ const H2 = 'font-display font-bold text-2xl sm:text-3xl text-slate-900 dark:text
 const P = 'mt-4 text-slate-600 dark:text-slate-300 leading-relaxed';
 const B = '../';   // pages live in /case-studies/, so shared files are one folder up
 const U = 'https://images.unsplash.com/';
+
+// Cover images: use the optimised versions (made by "npm run images") when they exist, otherwise the original file.
+// An old-style Unsplash id (photo-...) still works too.
+const sizes = fs.existsSync('images/projects/sizes.json') ? JSON.parse(fs.readFileSync('images/projects/sizes.json', 'utf8')) : {};
+function coverSet(cover, title) {
+  if (/^photo-/.test(cover)) return { page: `${U}${cover}?auto=format&fit=crop&w=1600&q=80`, card: `${U}${cover}?auto=format&fit=crop&w=800&q=80`, og: null, local: false, dims: null };
+  const base = cover.replace(/\.[a-z0-9]+$/i, '');
+  const has = p => fs.existsSync(p);
+  if (!has(cover) && !has(`${base}.webp`)) console.warn(`WARNING: cover image not found for "${title}": ${cover}`);
+  const page = has(`${base}.webp`) ? `${base}.webp` : cover;
+  const card = has(`${base}-card.webp`) ? `${base}-card.webp` : page;
+  return { page, card, og: has(`${base}-og.jpg`) ? `${base}-og.jpg` : null, local: true, dims: sizes[`${base.split('/').pop()}.webp`] || null };
+}
 const chip = t => `<span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200">${esc(t)}</span>`;
 const tick = '<svg class="w-5 h-5 mt-0.5 text-emerald-500 shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z" clip-rule="evenodd"/></svg>';
 
@@ -53,7 +66,10 @@ const bottom = `<footer class="border-t border-slate-200 dark:border-slate-800 b
 function page(c, i) {
   const next = caseStudies[(i + 1) % caseStudies.length];
   const url = `${site}/case-studies/${c.slug}.html`;
-  const title = `${c.title} | Case Study | DDGs`;
+  const cv = coverSet(c.cover, c.title);
+  const shareImg = cv.og ? `${site}/${cv.og}` : `${site}/images/og-card.jpg`;
+  const longTitle = `${c.title} | Case Study | DDGs`;
+  const title = c.seoTitle || (longTitle.length <= 60 ? longTitle : `${c.title} | DDGs`);   // keep page titles short enough for Google
   const facts = [['Client', c.client], ['Industry', c.industry], ['Location', c.location], ['Timeline', `${c.duration}, ${c.year}`], ['Our role', c.role], ['Platform', c.platform]]
     .map(([k, v]) => `<div class="p-4 ${CARD}"><dt class="text-xs uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400">${k}</dt><dd class="mt-1 font-semibold text-slate-900 dark:text-white">${esc(v)}</dd></div>`).join('');
   const results = c.results.map(([n, t]) => `<div class="p-6 ${CARD} text-center"><p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-600 dark:text-emerald-400">${esc(n)}</p><p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(t)}</p></div>`).join('');
@@ -74,11 +90,12 @@ ${c.verified ? '' : '<meta name="robots" content="noindex, follow">\n'}<meta nam
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(c.summary)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${site}/images/og-card.jpg">
+<meta property="og:image" content="${shareImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(c.title)}: case study by Data and Design Geeks Studio">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="${site}/images/og-card.jpg">
+<meta name="twitter:image" content="${shareImg}">
 <link rel="icon" href="${B}images/logo.png">
 <script type="application/ld+json">${ld}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,7 +114,7 @@ ${top}
     <h1 class="mt-4 font-display font-extrabold text-4xl sm:text-6xl tracking-tight text-slate-900 dark:text-white">${esc(c.title)}</h1>
     <p class="mt-5 text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">${esc(c.summary)}</p>
   </header>
-  <figure class="mt-10 overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-brand-600/30 to-cyan-500/30 aspect-[16/8] shadow-2xl"><img src="${U}${c.cover}?auto=format&fit=crop&w=1600&q=80" alt="${esc(c.title)}" width="1600" height="800" fetchpriority="high" decoding="async" class="w-full h-full object-cover" onerror="this.remove()"></figure>
+  <figure class="mt-10 overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-gradient-to-br from-brand-600/30 to-cyan-500/30 shadow-2xl"><img src="${cv.local ? B + esc(cv.page) : cv.page}" alt="${esc(c.title)} cover image"${cv.dims ? ` width="${cv.dims.width}" height="${cv.dims.height}"` : ''} fetchpriority="high" decoding="async" class="w-full h-auto block" onerror="this.remove()"></figure>
   <dl class="mt-8 grid grid-cols-2 lg:grid-cols-3 gap-4">${facts}</dl>
   <section class="mt-16" aria-labelledby="results-h"><h2 id="results-h" class="sr-only">Key results</h2><div class="grid sm:grid-cols-3 gap-5">${results}</div></section>
   <div class="mt-16 grid lg:grid-cols-12 gap-12">
@@ -126,9 +143,17 @@ ${bottom}`;
 fs.mkdirSync('case-studies', { recursive: true });
 caseStudies.forEach((c, i) => fs.writeFileSync(`case-studies/${c.slug}.html`, page(c, i)));
 
+// Remove pages for case studies that no longer exist in src/case-studies.mjs (so old pages don't stay online)
+const keep = new Set(caseStudies.map(c => `${c.slug}.html`));
+for (const f of fs.readdirSync('case-studies')) {
+  if (f.endsWith('.html') && !keep.has(f)) { fs.unlinkSync(`case-studies/${f}`); console.log(`Removed old page: case-studies/${f}`); }
+}
+
 // Data used by the home page cards and popup
 const out = `/* GENERATED by tools/build-case-studies.mjs from src/case-studies.mjs. Do not edit this file by hand. */
-const PROJECTS = ${JSON.stringify(caseStudies.map(c => [c.title, c.category, c.cover, c.summary]), null, 2)};
+/* Image source for a project card or popup: a local file path, or an old-style Unsplash id. */
+const coverSrc = (c, w) => (/^photo-/.test(c) ? 'https://images.unsplash.com/' + c + '?auto=format&fit=crop&w=' + w + '&q=80' : c);
+const PROJECTS = ${JSON.stringify(caseStudies.map(c => [c.title, c.category, coverSet(c.cover, c.title).card, c.summary]), null, 2)};
 const CASE_STUDIES = ${JSON.stringify(Object.fromEntries(caseStudies.map(c => [c.title, `case-studies/${c.slug}.html`])), null, 2)};
 const PROJECT_FACTS = ${JSON.stringify(Object.fromEntries(caseStudies.map(c => [c.title, { challenge: c.snap[0], solution: c.snap[1], result: c.snap[2], tools: c.tools }])), null, 2)};
 `;

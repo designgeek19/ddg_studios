@@ -1,0 +1,46 @@
+{
+  "carepoint-cover.webp": {
+    "width": 1536,
+    "height": 1024
+  },
+  "digitalajo-cover.webp": {
+    "width": 1368,
+    "height": 693
+  },
+  "distribution-cover.webp": {
+    "width": 1360,
+    "height": 763
+  },
+  "donorimpact-cover.webp": {
+    "width": 1364,
+    "height": 757
+  },
+  "field-cover.webp": {
+    "width": 1113,
+    "height": 698
+  },
+  "healthcare-cover.webp": {
+    "width": 1310,
+    "height": 758
+  },
+  "hrpayroll-cover.webp": {
+    "width": 1408,
+    "height": 768
+  },
+  "lastmile-cover.webp": {
+    "width": 1146,
+    "height": 565
+  },
+  "microfinance-cover.webp": {
+    "width": 1600,
+    "height": 1000
+  },
+  "onlinestore-cover.webp": {
+    "width": 1350,
+    "height": 746
+  },
+  "retail-cover.webp": {
+    "width": 1128,
+    "height": 668
+  }
+}

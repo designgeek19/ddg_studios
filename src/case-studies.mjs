@@ -3,6 +3,7 @@
 //
 // verified: false -> the page gets a "noindex" tag and is left out of sitemap.xml, so search engines ignore it.
 //           Set it to true once every name, number and quote on that page is real and approved.
+// cover: path to your cover image, e.g. 'images/projects/carepoint-cover.png'. Run  npm run images  to create the fast web versions.
 // screens: optional list of real screenshot paths, e.g. ['images/cases/payments-1.webp']. The "Inside the product" section appears only when you add some.
 export const site = 'https://ddgstudios.netlify.app';   // change to your own domain when you switch
 
@@ -11,24 +12,24 @@ const phases = (a, b, c, d, names = ['Discover', 'Design', 'Build', 'Launch']) =
 export const caseStudies = [
   {
     slug: 'carepoint-hospital-management', verified: true,
-    title: 'CarePoint Hospital Management & Booking Platform', category: 'Web & Mobile', cover: 'photo-1519494026892-80bbd2d6fd0d', //[cite: 1]
-    summary: 'A connected healthcare platform combining a patient booking app and staff dashboard to eliminate booking uncertainty and scheduling bottlenecks.', //[cite: 1]
-    client: 'CarePoint Health Systems', industry: 'Healthtech', location: 'Lagos', year: '2026', duration: '10 weeks', //[cite: 1]
-    role: 'UI/UX design, design system architecture, accessibility review', platform: 'Mobile (Patient App) & Web / Tablet (Staff Dashboard)', //[cite: 1]
-    results: [['0', 'scheduling conflicts or double-bookings during testing'], ['< 2 min', 'for patients to discover a doctor and confirm a slot'], ['4 roles', 'unified across one booking-to-consultation loop']], //[cite: 1]
-    challenge: ['Patients faced fragmented booking channels across phone calls, walk-ins, and third-party tools, leaving them uncertain if appointments were confirmed. At the same time, hospital staff managed schedules manually, causing double-bookings, no-shows, and delayed communication.', 'CarePoint needed a trustworthy digital front door to validate the core booking-to-consultation loop before adding billing, telemedicine, or pharmacy integrations, designed with strict WCAG 2.1 AA accessibility and clear workflows for clinical staff.'], //[cite: 1]
-    phases: phases('Shadowed front-desk staff and clinicians to map patient scheduling bottlenecks and intake flows.', 'Created an accessible design system with clinical deep teal, semantic status tokens, and 44px touch targets.', 'Prototyped the Patient App and lightweight Staff/Doctor Dashboard across two-week design sprints.', 'Ran heuristic evaluations, moderated patient usability sessions, clinical walkthroughs, and WCAG audits.'), //[cite: 1]
-    solution: 'We designed a dual-interface MVP pairing a self-service patient app with a lightweight staff dashboard. Patients discover doctors, book verified slots, and track appointments, while clinical staff manage the daily schedule, log walk-ins, and review pre-consultation health snapshots.', //[cite: 1]
-    features: ['Doctor and department discovery with real-time calendar and slot availability', 'Lightweight Staff/Doctor daily schedule view with real-time status management', 'Self-service appointment management with reschedule, cancellation, and reminder alerts', 'Pre-consultation clinical snapshot displaying visit reasons and basic health profiles'], //[cite: 1]
-    outcome: 'During prototype validation, the platform eliminated scheduling conflicts and manual phone-tag entirely. Patients gained immediate booking certainty, clinicians received pre-consultation health context before each visit, and front-desk staff achieved clear daily schedule visibility.', //[cite: 1]
-    quote: ['CarePoint transformed our front-desk operations from manual paper books and constant phone-tag into a predictable intake experience that clinicians and patients trust.', 'Clinical Stakeholder, CarePoint Health Systems'], //[cite: 1]
-    tools: ['Figma', 'Inter Typography', 'Design Tokens', 'React', 'TypeScript', 'WCAG 2.1 AA'], //[cite: 1]
-    team: ['Project manager', 'Lead UI/UX designer', 'Two full-stack developers', 'Clinical advisor'], //[cite: 1]
-    snap: ['Appointments were fragmented across phone calls, walk-ins, and manual paper books.', 'A unified patient booking app and real-time clinical staff schedule dashboard.', 'Zero double-bookings and a seamless booking-to-consultation loop during testing.'] //[cite: 1]
+    title: 'CarePoint Hospital Management & Booking Platform', category: 'Web & Mobile', cover: 'images/projects/carepoint-cover.png',
+    summary: 'A connected healthcare platform combining a patient booking app and staff dashboard to eliminate booking uncertainty and scheduling bottlenecks.',
+    client: 'CarePoint Health Systems', industry: 'Healthtech', location: 'Lagos', year: '2026', duration: '10 weeks',
+    role: 'UI/UX design, design system architecture, accessibility review', platform: 'Mobile (Patient App) & Web / Tablet (Staff Dashboard)',
+    results: [['0', 'scheduling conflicts or double-bookings during testing'], ['< 2 min', 'for patients to discover a doctor and confirm a slot'], ['4 roles', 'unified across one booking-to-consultation loop']],
+    challenge: ['Patients faced fragmented booking channels across phone calls, walk-ins, and third-party tools, leaving them uncertain if appointments were confirmed. At the same time, hospital staff managed schedules manually, causing double-bookings, no-shows, and delayed communication.', 'CarePoint needed a trustworthy digital front door to validate the core booking-to-consultation loop before adding billing, telemedicine, or pharmacy integrations, designed with strict WCAG 2.1 AA accessibility and clear workflows for clinical staff.'],
+    phases: phases('Shadowed front-desk staff and clinicians to map patient scheduling bottlenecks and intake flows.', 'Created an accessible design system with clinical deep teal, semantic status tokens, and 44px touch targets.', 'Prototyped the Patient App and lightweight Staff/Doctor Dashboard across two-week design sprints.', 'Ran heuristic evaluations, moderated patient usability sessions, clinical walkthroughs, and WCAG audits.'),
+    solution: 'We designed a dual-interface MVP pairing a self-service patient app with a lightweight staff dashboard. Patients discover doctors, book verified slots, and track appointments, while clinical staff manage the daily schedule, log walk-ins, and review pre-consultation health snapshots.',
+    features: ['Doctor and department discovery with real-time calendar and slot availability', 'Lightweight Staff/Doctor daily schedule view with real-time status management', 'Self-service appointment management with reschedule, cancellation, and reminder alerts', 'Pre-consultation clinical snapshot displaying visit reasons and basic health profiles'],
+    outcome: 'During prototype validation, the platform eliminated scheduling conflicts and manual phone-tag entirely. Patients gained immediate booking certainty, clinicians received pre-consultation health context before each visit, and front-desk staff achieved clear daily schedule visibility.',
+    quote: ['CarePoint transformed our front-desk operations from manual paper books and constant phone-tag into a predictable intake experience that clinicians and patients trust.', 'Clinical Stakeholder, CarePoint Health Systems'],
+    tools: ['Figma', 'Inter Typography', 'Design Tokens', 'React', 'TypeScript', 'WCAG 2.1 AA'],
+    team: ['Project manager', 'Lead UI/UX designer', 'Two full-stack developers', 'Clinical advisor'],
+    snap: ['Appointments were fragmented across phone calls, walk-ins, and manual paper books.', 'A unified patient booking app and real-time clinical staff schedule dashboard.', 'Zero double-bookings and a seamless booking-to-consultation loop during testing.']
   },
   {
     slug: 'hr-payroll-design-system', verified: true,
-    title: 'HR and Payroll Design System', category: 'Design', cover: 'photo-1561070791-2526d30994b5',
+    title: 'HR and Payroll Design System', category: 'Design', cover: 'images/projects/hrpayroll-cover.png',
     summary: 'One shared design system that brought three HR and payroll products from a Lagos software company into a single look and feel.',
     client: 'Lagos HR software company (name withheld)', industry: 'HR technology', location: 'Lagos', year: '2025', duration: '12 weeks',
     role: 'Design system, component library, documentation', platform: 'Web applications',
@@ -45,7 +46,7 @@ export const caseStudies = [
   },
   {
     slug: 'digital-ajo-savings-app', verified: true,
-    title: 'Digital Ajo Savings App', category: 'Design', cover: 'photo-1558655146-9f40138edfeb',
+    title: 'Digital Ajo Savings App', category: 'Design', cover: 'images/projects/digitalajo-cover.png',
     summary: 'A new brand and app design that makes group savings (ajo and esusu) feel modern, clear and trustworthy.',
     client: 'Nigerian savings startup (name withheld)', industry: 'Fintech', location: 'Lagos and Abuja', year: '2026', duration: '9 weeks',
     role: 'Brand identity, UI design, design handoff', platform: 'Android and iOS',
@@ -62,10 +63,10 @@ export const caseStudies = [
   },
 {
     slug: 'microfinance-mobile-banking-app', verified: true,
-    title: 'Microfinance Mobile Banking App', category: 'Fintech & AI', cover: 'photo-1563013544-824ae1b704d3',
+    title: 'Microfinance Mobile Banking App', category: 'Fintech & AI', cover: 'images/projects/microfinance-cover.png',
     summary: 'A security-hardened SME financial ledger and real-time cash-flow forecasting platform powered by Google Gemini AI and OPay API integration.',
-    client: 'Forge Labs (OPay Innovation Challenge 2026)', industry: 'Fintech / SME Digital Tools', location: 'Kubwa, Abuja', year: '2026', duration: '8 weeks',
-    role: 'Threat modeling, penetration testing, full-stack web engineering, UI/UX design, AI integration', platform: 'Web (Four-Screen Hardened Architecture)',
+    client: 'Forge Labs (OPay Innovation Challenge 2026)', industry: 'Fintech / SME Digital Tools', location: 'Kubwa, Abuja', year: '2026', duration: '1 week',
+    role: 'Threat modeling, penetration testing, full-stack web engineering, UI/UX design, AI integration', platform: 'Android and iOS (Eight-Screen Hardened Architecture)',
     results: [['80–95%', 'SME failure rate addressed through automated cash-flow tracking'], ['0', 'accounting knowledge required for informal merchants to log transactions'], ['100%', 'NDPR-compliant defensive engine with live SQLi and brute-force mitigation']],
     challenge: ['Between 80% and 95% of Nigerian SMEs fail within five years due to poor record-keeping and cash-flow mismanagement, leaving informal operators flying blind without visibility into burn rate or runway.', 'Conventional accounting tools are too complex for informal traders, while lightweight ledger alternatives completely ignore cybersecurity, exposing sensitive transaction data, revenues, and supplier costs to fraud, SQL injection, and identity theft.'],
     phases: phases('Analyzed bookkeeping friction and cyber threats faced by Nigerian informal retailers and open-air market distributors.', 'Designed a high-fidelity four-screen prototype in Figma featuring a Zero-Trust gateway and plain-language ledger.', 'Integrated Google Gemini API into the backend analytical core as a Virtual CFO alongside server-level SQLi filtering and rate limiting.', 'Conducted penetration testing, NDPR compliance auditing, and simulated live transaction integration with the OPay Business API.'),
@@ -79,7 +80,7 @@ export const caseStudies = [
   },
   {
     slug: 'last-mile-dispatch-app', verified: true,
-    title: 'Last-Mile Dispatch App', category: 'App', cover: 'photo-1512941937669-90a1b58e7e9c',
+    title: 'Last-Mile Dispatch App', category: 'App', cover: 'images/projects/lastmile-cover.png',
     summary: 'A rider app and dispatch console that shortened delivery times for a company serving Lagos and Abuja.',
     client: 'Primetime Logistics - Operating in Lagos & Abuja', industry: 'Logistics', location: 'Lagos and Abuja', year: '2025', duration: '16 weeks',
     role: 'Product design, mobile and backend engineering', platform: 'Android rider app and web dispatch console',
@@ -96,7 +97,7 @@ export const caseStudies = [
   },
   {
     slug: 'healthcare-cloud-security-audit', verified: true,
-    title: 'Healthcare Cloud Security Audit', category: 'Security', cover: 'photo-1550751827-4bd374c3f58b',
+    title: 'Healthcare Cloud Security Audit', category: 'Security', cover: 'images/projects/healthcare-cover.png',
     summary: 'A security audit and fix plan that protected patient records for a hospital group, in line with the Nigeria Data Protection Act.',
     client: 'Abuja hospital group (name withheld)', industry: 'Healthcare', location: 'Abuja', year: '2026', duration: '6 weeks',
     role: 'Security assessment, remediation plan, staff training', platform: 'Cloud infrastructure and web applications',
@@ -113,7 +114,7 @@ export const caseStudies = [
   },
   {
     slug: 'retail-demand-forecasting', verified: true,
-    title: 'Retail Demand Forecasting', category: 'Data', cover: 'photo-1559028012-481c04fa702d',
+    title: 'Retail Demand Forecasting', category: 'Data', cover: 'images/projects/retail-cover.png',
     summary: 'Weekly forecasts that help a supermarket chain stock the right products and waste less fresh produce.',
     client: 'Lagos and Abuja supermarket chain (name withheld)', industry: 'Retail', location: 'Lagos and Abuja', year: '2026', duration: '12 weeks',
     role: 'Data engineering, forecasting models, dashboards', platform: 'Python pipeline and Power BI',
@@ -130,7 +131,7 @@ export const caseStudies = [
   },
   {
     slug: 'distribution-revenue-dashboard', verified: true,
-    title: 'Distribution Revenue Dashboard', category: 'Data', cover: 'photo-1551288049-bebda4e38f71',
+    title: 'Distribution Revenue Dashboard', category: 'Data', cover: 'images/projects/distribution-cover.png',
     summary: 'One executive dashboard that replaced nine separate sales reports for a distributor in Kano and Lagos.',
     client: 'Kano and Lagos distribution company (name withheld)', industry: 'FMCG distribution', location: 'Kano and Lagos', year: '2025', duration: '10 weeks',
     role: 'Data warehouse, Power BI dashboards, training', platform: 'Power BI and SQL',
@@ -147,7 +148,7 @@ export const caseStudies = [
   },
   {
     slug: 'field-survey-data-pipeline', verified: true,
-    title: 'Field Survey Data Pipeline', category: 'Data', cover: 'photo-1504868584819-f8e8b4b6d7e3',
+    title: 'Field Survey Data Pipeline', category: 'Data', cover: 'images/projects/field-cover.png',
     summary: 'An automated pipeline that cleans and reports on more than 500,000 field survey responses collected across Nigeria.',
     client: 'Northern Nigeria research and development NGO (name withheld)', industry: 'Non-profit and research', location: 'Abuja and northern states', year: '2025', duration: '8 weeks',
     role: 'Data engineering, quality checks, reporting', platform: 'Python pipeline and dashboards',
@@ -164,7 +165,7 @@ export const caseStudies = [
   },
   {
     slug: 'online-store-paystack-checkout', verified: true,
-    title: 'Online Store with Paystack Checkout', category: 'Web', cover: 'photo-1556742049-0cfed4f6a45d',
+    title: 'Online Store with Paystack Checkout', category: 'Web', cover: 'images/projects/onlinestore-cover.png',
     summary: 'A fast online store with a short mobile checkout for a Lagos fashion retailer that used to sell through Instagram and WhatsApp.',
     client: 'Lagos fashion and lifestyle retailer (name withheld)', industry: 'E-commerce', location: 'Lagos', year: '2025', duration: '11 weeks',
     role: 'UX design, web development, payments integration, SEO', platform: 'Web (mobile first)',
@@ -181,7 +182,7 @@ export const caseStudies = [
   },
   {
     slug: 'donor-impact-platform', verified: true,
-    title: 'Donor Impact Platform', category: 'Web', cover: 'photo-1522071820081-009f0129c71c',
+    title: 'Donor Impact Platform', category: 'Web', cover: 'images/projects/donorimpact-cover.png',
     summary: 'A transparent donation and reporting platform for a Nigerian NGO, with giving in naira and US dollars.',
     client: 'Nigerian maternal health and education NGO (name withheld)', industry: 'Non-profit', location: 'Abuja', year: '2026', duration: '13 weeks',
     role: 'UX design, web development, payments, reporting', platform: 'Web (responsive)',
