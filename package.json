@@ -2,7 +2,7 @@
   "name": "ddg-studios",
   "version": "1.0.0",
   "private": true,
-  "description": "Data and Design Geeks Studio website",
+  "description": "Data & Design Geeks Tech Studio website",
   "scripts": {
     "dev": "node tools/build-case-studies.mjs && tailwindcss -i ./src/input.css -o ./css/style.css --watch",
     "build": "node tools/build-case-studies.mjs && tailwindcss -i ./src/input.css -o ./css/style.css --minify",

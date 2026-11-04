@@ -1,5 +1,5 @@
-# DDG-STUDIOS
-Website for Data and Design Geeks Studio (DDGs).
+# DDGTech Studio
+Website for Data & Design Geeks Tech Studio (DDGs).
 
 ## Project structure
 ```

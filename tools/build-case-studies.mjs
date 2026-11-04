@@ -38,7 +38,7 @@ const top = `<body class="relative min-h-screen text-slate-800 dark:text-slate-1
 <div id="progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 z-[80] w-0"></div>
 <header class="fixed top-0 inset-x-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/60 dark:border-slate-800/80">
   <nav class="max-w-[1500px] mx-auto px-5 h-20 flex items-center justify-between" aria-label="Main Navigation">
-    <a href="${B}index.html" class="flex items-center gap-3 font-display font-extrabold text-xl tracking-tight"><span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-500 p-0.5 shadow-md"><span class="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden"><img src="${B}images/logo.png" alt="" width="24" height="24" class="h-6 w-6 object-contain" onerror="this.remove()"></span></span><span class="text-slate-900 dark:text-white">DDG<span class="text-brand-500 dark:text-emerald-400">Studio</span></span></a>
+    <a href="${B}index.html" class="flex items-center gap-3 font-display font-extrabold text-xl tracking-tight"><span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-cyan-500 p-0.5 shadow-md"><span class="w-full h-full bg-white dark:bg-slate-900 rounded-[10px] flex items-center justify-center overflow-hidden"><img src="${B}images/logo.png" alt="" width="24" height="24" class="h-6 w-6 object-contain" onerror="this.remove()"></span></span><span class="text-slate-900 dark:text-white">DDGTech&nbsp;<span class="text-brand-500 dark:text-emerald-400">Studio</span></span></a>
     <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">${desktopNav}</ul>
     <div class="flex items-center gap-3">
       <button id="theme" class="h-10 w-10 grid place-items-center rounded-xl border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60 transition" aria-label="Toggle display theme"><svg class="h-5 w-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg><svg class="h-5 w-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4m11.4-11.4 1.4-1.4"/></svg></button>
@@ -51,11 +51,11 @@ const top = `<body class="relative min-h-screen text-slate-800 dark:text-slate-1
 `;
 const bottom = `<footer class="border-t border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl py-12 px-5">
   <div class="max-w-[1400px] mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
-    <div class="lg:col-span-2 space-y-3"><a href="${B}index.html" class="font-display font-extrabold text-lg text-slate-900 dark:text-white">Data &amp; Design Geeks Studio</a><p class="text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">Intuitive, resilient web, mobile, data, and security products for fast-growing businesses. Abuja, Nigeria &bull; Worldwide remote.</p></div>
+    <div class="lg:col-span-2 space-y-3"><a href="${B}index.html" class="font-display font-extrabold text-lg text-slate-900 dark:text-white">Data &amp; Design Geeks Tech Studio</a><p class="text-slate-600 dark:text-slate-400 max-w-sm leading-relaxed">Intuitive, resilient web, mobile, data, and security products for fast-growing businesses. Abuja, Nigeria &bull; Worldwide remote.</p></div>
     <nav aria-label="Studio links"><h3 class="font-display font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-xs">Studio</h3><ul class="space-y-2.5 text-slate-600 dark:text-slate-400"><li><a href="${B}index.html#work" class="${LINK}">Case Studies</a></li><li><a href="${B}index.html#team" class="${LINK}">Team</a></li><li><a href="${B}academy.html" class="${LINK}">Academy</a></li><li><a href="${B}index.html#faq" class="${LINK}">FAQ</a></li></ul></nav>
-    <nav aria-label="Connect"><h3 class="font-display font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-xs">Connect</h3><ul class="space-y-2.5 text-slate-600 dark:text-slate-400"><li><a href="${B}start-project.html" class="${LINK}">Start a project</a></li><li><a href="https://wa.me/2348135306540" target="_blank" rel="noopener" class="${LINK}">WhatsApp</a></li><li><a href="https://www.behance.net/DesignGeeksStudio" target="_blank" rel="noopener" class="${LINK}">Behance</a></li><li><a href="https://github.com/designgeek19" target="_blank" rel="noopener" class="${LINK}">GitHub</a></li></ul></nav>
+    <nav aria-label="Connect"><h3 class="font-display font-bold text-slate-900 dark:text-white mb-3 uppercase tracking-wider text-xs">Connect</h3><ul class="space-y-2.5 text-slate-600 dark:text-slate-400"><li><a href="${B}start-project.html" class="${LINK}">Start a project</a></li><li><a href="https://wa.me/2348135306540" target="_blank" rel="noopener" class="${LINK}">WhatsApp</a></li><li><a href="https://www.instagram.com/DDGTech_Studio/" target="_blank" rel="noopener" class="${LINK}">Instagram</a></li><li><a href="https://www.behance.net/DesignGeeksStudio" target="_blank" rel="noopener" class="${LINK}">Behance</a></li><li><a href="https://github.com/designgeek19" target="_blank" rel="noopener" class="${LINK}">GitHub</a></li></ul></nav>
   </div>
-  <div class="max-w-[1400px] mx-auto mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400"><p>&copy; <span id="yr">2026</span> Data and Design Geeks Studio (DDGs). All rights reserved.</p><a href="${B}privacy.html" class="hover:underline">Privacy Policy</a></div>
+  <div class="max-w-[1400px] mx-auto mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-400"><p>&copy; <span id="yr">2026</span> Data &amp; Design Geeks Tech Studio (DDGs). All rights reserved.</p><a href="${B}privacy.html" class="hover:underline">Privacy Policy</a></div>
 </footer>
 <button id="top-btn" class="fixed bottom-6 right-6 h-12 w-12 rounded-2xl bg-gradient-to-r from-brand-600 to-teal-600 text-white shadow-xl shadow-brand-500/30 hidden z-40 place-items-center hover:-translate-y-1 transition" aria-label="Scroll to top"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg></button>
 <script src="${B}js/site.js" defer></script>
@@ -75,7 +75,7 @@ function page(c, i) {
   const results = c.results.map(([n, t]) => `<div class="p-6 ${CARD} text-center"><p class="font-display font-extrabold text-3xl sm:text-4xl text-brand-600 dark:text-emerald-400">${esc(n)}</p><p class="mt-2 text-sm text-slate-600 dark:text-slate-300">${esc(t)}</p></div>`).join('');
   const phases = c.phases.map(([t, d], n) => `<li class="p-6 ${CARD}"><span class="font-display font-bold text-brand-600 dark:text-emerald-400">0${n + 1}</span><h3 class="mt-1 font-display font-bold text-lg text-slate-900 dark:text-white">${esc(t)}</h3><p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">${esc(d)}</p></li>`).join('');
   const screens = (c.screens || []).length ? `<section aria-labelledby="gallery-h"><h2 id="gallery-h" class="${H2}">Inside the product</h2><div class="mt-6 grid sm:grid-cols-2 gap-5">${c.screens.map((s, n) => `<figure class="overflow-hidden rounded-3xl border border-slate-200/80 dark:border-slate-800 bg-slate-200 dark:bg-slate-800 aspect-[16/10]"><img src="${B}${esc(s)}" alt="${esc(c.title)} screen ${n + 1}" width="1000" height="625" loading="lazy" decoding="async" class="w-full h-full object-cover"></figure>`).join('')}</div></section>` : '';
-  const ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title}: case study`, description: c.summary, author: { '@type': 'Organization', name: 'Data and Design Geeks Studio' }, publisher: { '@type': 'Organization', name: 'Data and Design Geeks Studio' }, mainEntityOfPage: url });
+  const ld = JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: `${c.title}: case study`, description: c.summary, author: { '@type': 'Organization', name: 'Data & Design Geeks Tech Studio' }, publisher: { '@type': 'Organization', name: 'Data & Design Geeks Tech Studio' }, mainEntityOfPage: url });
   return `<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -86,14 +86,14 @@ function page(c, i) {
 ${c.verified ? '' : '<meta name="robots" content="noindex, follow">\n'}<meta name="theme-color" content="#0f172a">
 <link rel="canonical" href="${url}">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="Data and Design Geeks Studio">
+<meta property="og:site_name" content="Data &amp; Design Geeks Tech Studio">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(c.summary)}">
 <meta property="og:url" content="${url}">
 <meta property="og:image" content="${shareImg}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="${esc(c.title)}: case study by Data and Design Geeks Studio">
+<meta property="og:image:alt" content="${esc(c.title)}: case study by Data &amp; Design Geeks Tech Studio">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="${shareImg}">
 <link rel="icon" href="${B}images/logo.png">
