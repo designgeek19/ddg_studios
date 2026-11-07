@@ -107,7 +107,7 @@
     for (const [k, v] of fd.entries()) if (k !== 'company' && k !== 'services') d[k] = typeof v === 'string' ? v.trim() : v;
     d.services = fd.getAll('services').join(', ');
     d.ref = 'DDG-' + Date.now().toString(36).toUpperCase().slice(-6);
-    d._subject = `[DDG Project Brief] ${d.services} - ${d.name} (${d.budget})`;
+    d._subject = `[DDGTech Project Brief] ${d.services} - ${d.name} (${d.budget})`;
     const label = submit.innerHTML; submit.disabled = true; submit.setAttribute('aria-busy', 'true'); submit.textContent = 'Sending...';
     let sent;
     if (!configured(CONFIG.briefEndpoint) && CONFIG.briefEndpoint !== 'netlify') {

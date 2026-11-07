@@ -12,7 +12,7 @@ Until you add a form endpoint, both fall back to opening the visitor's email app
 ## Option A: Formspree (works on any host)
 
 1. Create a free account at https://formspree.io.
-2. Create two forms: "DDGs Project Inquiries" and "DDG Academy Applications". Set the recipient to `dataanddesigngeeks@gmail.com` and copy each form URL (it looks like `https://formspree.io/f/abcdwxyz`).
+2. Create two forms: "DDGs Project Inquiries" and "DDGTech Academy Applications". Set the recipient to `dataanddesigngeeks@gmail.com` and copy each form URL (it looks like `https://formspree.io/f/abcdwxyz`).
 3. In `js/forms.js`, replace the two placeholder URLs in the `CONFIG` block:
    ```js
    contactEndpoint: 'https://formspree.io/f/abcdwxyz',

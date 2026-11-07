@@ -115,7 +115,7 @@
     data: fd => {
       const d = {};
       for (const [k, v] of fd.entries()) if (k !== 'company') d[k] = typeof v === 'string' ? v.trim() : v;
-      d._subject = `[DDG Academy Application] ${d.track} - ${d.name}`;
+      d._subject = `[DDGTech Academy Application] ${d.track} - ${d.name}`;
       return d;
     },
     mailBody: d => Object.entries(d).filter(([k]) => k !== '_subject').map(([k, v]) => `${k}: ${v}`).join('\n')

@@ -1,4 +1,4 @@
-/* DDG Academy page.
+/* DDGTech Academy page.
    EDIT THE THREE LISTS AT THE TOP (TRACKS, COHORTS, FAQS): the syllabus, dates, application form options and FAQ all update from them.
    All text below is placeholder content to replace with your real programme details. */
 
@@ -94,7 +94,7 @@ const FAQS = [
   ['How much does it cost and how do I pay?', 'You do not pay anything to apply. If you are accepted, our team sends the tuition amount and payment options directly. Scholarships may be available. Tick the scholarship box on the application.'],
   ['What happens after I apply?', 'We review every application within 5 working days, then invite shortlisted applicants to a short friendly call. You hear the outcome within 3 working days of the call.'],
   ['Do I get a certificate?', 'Yes. You receive a certificate of completion and a reviewed portfolio project.'],
-  ['Can my company train a team?', 'Yes. We run private and corporate cohorts. Use the contact form and choose "DDG Academy" as the requirement.']
+  ['Can my company train a team?', 'Yes. We run private and corporate cohorts. Use the contact form and choose "DDGTech Academy" as the requirement.']
 ];
 
 /* ---------------- Rendering and behaviour (no need to edit below) ---------------- */
