@@ -117,28 +117,36 @@
 
 <main id="main">
 <!-- Hero Section -->
-<section id="top" class="relative pt-28 pb-20 md:pt-28 md:pb-28 px-8 overflow-hidden">
+<section id="top" class="relative isolate pt-28 pb-20 md:pt-28 md:pb-28 px-8 overflow-hidden">
+  <!-- Hero background photo: decorative, so alt is empty. Dark overlay keeps text above WCAG AA contrast. -->
+  <div class="absolute inset-0 -z-10 bg-slate-950" aria-hidden="true">
+    <img src="images/hero-bg.webp" alt="" width="1513" height="844" fetchpriority="high" decoding="async"
+         class="w-full h-full object-cover object-center">
+    <div class="absolute inset-0 bg-slate-950/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/55 to-slate-950/30"></div>
+    <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950/70 to-transparent"></div>
+  </div>
   <div class="max-w-[1400px] mx-auto grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
     
     <!-- Hero Text Introduction -->
     <div class="lg:col-span-6 space-y-8">
       <!-- Tag badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border border-emerald-500/20 backdrop-blur-md">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-500/15 text-emerald-200 border border-emerald-400/30 backdrop-blur-md">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
         Cross-Disciplinary Digital Innovation Team
       </div>
 
-      <h1 class="font-display font-extrabold text-4xl sm:text-6xl xl:text-[4rem] leading-[1.08] tracking-tight text-slate-900 dark:text-white">
+      <h1 class="font-display font-extrabold text-4xl sm:text-6xl xl:text-[4rem] leading-[1.08] tracking-tight text-white">
         Designing Better Experiences, 
         <span class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-500 bg-clip-text text-transparent">Building Smarter</span> Solutions.
       </h1>
 
-      <p class="text-sm sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+      <p class="text-sm sm:text-lg text-slate-200 leading-relaxed max-w-2xl">
         Data &amp; Design Geeks Tech Studio (DDGs) unites world-class talent across 
-        <strong class="font-semibold text-slate-900 dark:text-white">Web & App Development</strong>, 
-        <strong class="font-semibold text-slate-900 dark:text-white">Data Analytics</strong>, 
-        <strong class="font-semibold text-slate-900 dark:text-white">Product Design</strong>, and 
-        <strong class="font-semibold text-slate-900 dark:text-white">Cybersecurity</strong>. 
+        <strong class="font-semibold text-white">Web & App Development</strong>, 
+        <strong class="font-semibold text-white">Data Analytics</strong>, 
+        <strong class="font-semibold text-white">Product Design</strong>, and 
+        <strong class="font-semibold text-white">Cybersecurity</strong>. 
         We build resilient, user-focused digital solutions that help modern enterprises solve complex challenges, scale rapidly, and thrive globally.
       </p>
 
@@ -148,24 +156,24 @@
           <span>Consult Our Geeks</span>
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <a href="#work" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-bold bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-800 border border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 backdrop-blur shadow-sm transition">
+        <a href="#work" class="inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl font-bold bg-white/10 hover:bg-white/20 border border-white/30 text-white backdrop-blur shadow-sm transition">
           <span>Explore Projects</span>
-          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">10+</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-white/20 text-white">10+</span>
         </a>
       </div>
 
       <!-- Trust highlights -->
-      <div class="pt-6 border-t border-slate-200/80 dark:border-slate-800/80 flex flex-wrap items-center gap-6 text-xs text-slate-500 dark:text-slate-400">
+      <div class="pt-6 border-t border-white/20 flex flex-wrap items-center gap-6 text-xs text-slate-300">
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
           <span>End-to-End Delivery</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
           <span>Data-Driven UX Optimization</span>
         </div>
         <div class="flex items-center gap-2">
-          <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+          <svg class="w-4 h-4 text-emerald-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
           <span>Enterprise Cybersecurity Fortified</span>
         </div>
       </div>
