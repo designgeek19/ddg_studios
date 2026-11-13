@@ -1,0 +1,7 @@
+# Security contact for Data & Design Geeks Tech Studio (DDGTech Studio)
+# Standard: RFC 9116. Renew the Expires date at least once a year.
+Contact: mailto:dataanddesigngeeks@gmail.com
+Expires: 2027-11-09T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://ddgstudios.netlify.app/.well-known/security.txt
+Policy: https://ddgstudios.netlify.app/security-whitepaper.html#disclosure

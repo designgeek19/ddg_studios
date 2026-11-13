@@ -792,7 +792,7 @@
         <!-- Honeypot anti-spam field -->
         <input type="text" name="company" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
 
-        <p class="sm:col-span-2 text-xs text-slate-500 dark:text-slate-400">We use your details only to reply to your inquiry. See our <a href="privacy.html" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-emerald-400">Privacy Policy</a>.</p>
+        <p class="sm:col-span-2 text-xs text-slate-500 dark:text-slate-400">We use your details only to reply to your inquiry. See our <a href="privacy.html" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-emerald-400">Privacy Policy</a> and <a href="terms.html" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-emerald-400">Terms of Service</a>.</p>
 
         <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
           <button type="submit" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-600 to-teal-600 hover:from-brand-500 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-brand-500/25 hover:-translate-y-0.5 transition duration-200">
@@ -871,8 +871,8 @@
     <p>&copy; <span id="yr">2026</span> Data &amp; Design Geeks Tech Studio (DDGs). All rights reserved.</p>
     <div class="flex items-center gap-6">
       <a href="privacy.html" class="hover:underline">Privacy Policy</a>
-      <a href="#" class="hover:underline">Terms of Service</a>
-      <a href="#" class="hover:underline">Security Whitepaper</a>
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+      <a href="security-whitepaper.html" class="hover:underline">Security Whitepaper</a>
     </div>
   </div>
 </footer>
@@ -1269,24 +1269,45 @@ $('#top-btn').addEventListener('click', () => {
 
 /* ---- Team Profiles (replace placeholders with real details) ---- */
 const TEAM = [
-  ['Paul Adeka','Team Lead & Project Manager','Leadership','Sets the studio vision and partners with clients on product strategy, growth, and long-term roadmaps. Believes great software starts with a clear business problem.',['Strategy','Product Roadmaps','Partnerships']],
-  ['Fatima Bello','Product Design Lead','Design','Leads UI/UX research, design systems, and prototyping. Turns complex workflows into interfaces people enjoy using.',['Figma','Design Systems','User Research']],
-  ['Tochukwu Eze','Lead Full-Stack Engineer','Engineering','Architects scalable web platforms and APIs, and mentors the engineering squad on clean, tested, maintainable code.',['React / Next.js','Node.js','MySQL']],
-  ['Ibrahim Musa','Senior Data Scientist','Data','Builds forecasting models, ETL pipelines, and executive dashboards that turn raw data into decisions.',['Python','Power BI','Machine Learning']],
-  ['Chidi Nwosu','Cybersecurity Lead','Security','Runs penetration tests, threat models, and compliance roadmaps so every product ships secure by default.',['Pen Testing','Zero-Trust','OWASP']],
-  ['Zainab Yusuf','Mobile App Developer','Engineering','Ships fast, offline-ready iOS and Android apps with native-feel performance and polished interactions.',['Flutter','React Native','Firebase']],
-  ['Femi Adeyemi','UX Researcher','Design','Plans and runs interviews and usability tests that keep design decisions grounded in real user behavior.',['Usability Testing','Journey Mapping','Analytics']],
-  ['Esther Okonkwo','SEO Specialist','Marketing','Plans and manages SEO strategies and analytics for businesses and social media accounts.',['Google Analytics','Meta Account Management','Digital Marketing']],
-  ['Jude Adeyemo','Lead Graphic Designer','Design','Handles graphic design sprints and collaborates with teams to create compelling visual assets.',['Adobe Creative Suite','CorelDRAW','Client Relationships']]
+  /* HOW TO EDIT THE TEAM
+     Each person is one block. To add a LinkedIn button to someone's pop-up, paste their profile address into linkedin: '...'.
+     Leave linkedin: '' empty and no LinkedIn button is shown.
+     Photos: put the file in images/team/ named after the person (paul-adeka.jpg). To use a different file name, add  photo: 'file-name.jpg'  to that person's block. */
+  { name: 'Paul Adeka', role: 'Team Lead & Project Manager', dept: 'Leadership',
+    bio: 'Sets the studio vision and partners with clients on product strategy, growth, and long-term roadmaps. Believes great software starts with a clear business problem.',
+    skills: ['Strategy', 'Product Roadmaps', 'Partnerships'], linkedin: '' },
+  { name: 'Fatima Bello', role: 'Product Design Lead', dept: 'Design',
+    bio: 'Leads UI/UX research, design systems, and prototyping. Turns complex workflows into interfaces people enjoy using.',
+    skills: ['Figma', 'Design Systems', 'User Research'], linkedin: '' },
+  { name: 'Tochukwu Eze', role: 'Lead Full-Stack Engineer', dept: 'Engineering',
+    bio: 'Architects scalable web platforms and APIs, and mentors the engineering squad on clean, tested, maintainable code.',
+    skills: ['React / Next.js', 'Node.js', 'MySQL'], linkedin: '' },
+  { name: 'Ibrahim Musa', role: 'Senior Data Scientist', dept: 'Data',
+    bio: 'Builds forecasting models, ETL pipelines, and executive dashboards that turn raw data into decisions.',
+    skills: ['Python', 'Power BI', 'Machine Learning'], linkedin: '' },
+  { name: 'Chidi Nwosu', role: 'Cybersecurity Lead', dept: 'Security',
+    bio: 'Runs penetration tests, threat models, and compliance roadmaps so every product ships secure by default.',
+    skills: ['Pen Testing', 'Zero-Trust', 'OWASP'], linkedin: '' },
+  { name: 'Zainab Yusuf', role: 'Mobile App Developer', dept: 'Engineering',
+    bio: 'Ships fast, offline-ready iOS and Android apps with native-feel performance and polished interactions.',
+    skills: ['Flutter', 'React Native', 'Firebase'], linkedin: '' },
+  { name: 'Loveth Ugwueze', role: 'UI/UX & Graphics Designer', dept: 'Design',
+    bio: 'Designs intuitive digital product interfaces and compelling brand visual identities, bridging user empathy with high-impact aesthetics.',
+    skills: ['Figma', 'Photoshop', 'CorelDRAW'],
+    linkedin: 'https://www.linkedin.com/in/onyedikachukwu-loveth-ugwueze-769648233/' },
+  { name: 'Esther Okonkwo', role: 'SEO Specialist', dept: 'Marketing',
+    bio: 'Plans and manages SEO strategies and analytics for businesses and social media accounts.',
+    skills: ['Google Analytics', 'Meta Account Management', 'Digital Marketing'], linkedin: '' },
+  { name: 'Jude Adeyemo', role: 'Lead Graphic Designer', dept: 'Design',
+    bio: 'Handles graphic design sprints and collaborates with teams to create compelling visual assets.',
+    skills: ['Adobe Creative Suite', 'CorelDRAW', 'Client Relationships'], linkedin: '' }
 ];
 const DEPT_GRAD = {Leadership:'from-amber-400 to-orange-500',Design:'from-emerald-400 to-teal-500',Engineering:'from-cyan-400 to-blue-500',Data:'from-indigo-400 to-violet-500',Security:'from-rose-400 to-orange-500'};
 const initials = n => n.split(' ').map(w => w[0]).join('');
-/* Photos: put each file in images/team/ named after the person, e.g. images/team/paul-adeka.jpg.
-   To use a different file name, add it as an optional 6th item in that person's TEAM entry. */
 const photoPath = (n, custom) => custom ? 'images/team/' + custom : 'images/team/' + n.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.jpg';
-const avatar = (n, dept, cls, custom) => `<div class="relative overflow-hidden ${cls} bg-gradient-to-br ${DEPT_GRAD[dept]} grid place-items-center font-display font-extrabold text-white shadow-lg">${esc(initials(n))}<img src="${esc(photoPath(n, custom))}" alt="Photo of ${esc(n)}" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover"></div>`;
+const avatar = (n, dept, cls, custom) => `<div class="relative overflow-hidden ${cls} bg-gradient-to-br ${DEPT_GRAD[dept]} grid place-items-center font-display font-extrabold text-white shadow-lg">${esc(initials(n))}<img src="${esc(photoPath(n, custom))}" alt="Photo of ${esc(n)}" loading="lazy" onerror="this.remove()" class="absolute inset-0 w-full h-full object-cover object-top"></div>`;
 
-$('#people-grid').innerHTML = TEAM.map(([n, role, dept, , , ph], i) => `
+$('#people-grid').innerHTML = TEAM.map(({ name: n, role, dept, photo: ph }, i) => `
   <button data-m="${i}" class="group text-center flex flex-col items-center p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-emerald-400/50 hover:-translate-y-1 transition duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400">
     ${avatar(n, dept, 'w-20 h-20 rounded-2xl text-2xl group-hover:scale-105 transition', ph)}
     <h3 class="mt-5 font-display font-bold text-lg text-white">${esc(n)}</h3>
@@ -1305,7 +1326,7 @@ const chip = t => `<span class="px-3 py-1 rounded-full text-xs font-semibold bg-
 
 $('#people-grid').addEventListener('click', e => {
   const b = e.target.closest('[data-m]'); if (!b) return;
-  const [n, role, dept, bio, skills, ph] = TEAM[+b.dataset.m];
+  const { name: n, role, dept, bio, skills, photo: ph, linkedin } = TEAM[+b.dataset.m];
   openModal(`
     <div class="p-8 sm:p-10">
       <div class="flex items-center gap-5">
@@ -1319,8 +1340,7 @@ $('#people-grid').addEventListener('click', e => {
       <div class="mt-3 flex flex-wrap gap-2">${skills.map(chip).join('')}</div>
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="start-project.html" onclick="$('#modal').close()" class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold transition">Start a Project</a>
-        <a href="#" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">LinkedIn</a>
-        <a href="#" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">GitHub</a>
+        ${linkedin ? `<a href="${esc(linkedin)}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of ${esc(n)} (opens in a new tab)" class="px-5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 text-sm font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition">LinkedIn</a>` : ''}
       </div>
     </div>`);
 });
